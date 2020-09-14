@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -37,11 +39,16 @@ public class Utilisateur {
     @Column(nullable = false)
     private String salt;
 
-    //Liaison
-    //Un user habite à 0 ou 1 adresse
-    @OneToOne(mappedBy = "user")
+    //Liaison entre tables
+    @ManyToOne
+    private UserType role;
+
+    @OneToOne
     private Adresse adresse;
 
     @ManyToOne
-    private UserType role;
+    private Artiste artiste;
+
+    @OneToMany(mappedBy = "user")
+    private List<Commande> commandes = new ArrayList<>();
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,6 +21,7 @@ public class UserType {
     @Enumerated(EnumType.STRING)
     private RoleUtilisateur user_emun;
 
-    @OneToMany(mappedBy = "role")
-    private List<Utilisateur> users;
+    //Liaison entre tables
+    @OneToMany(mappedBy = "role") //Plus gros max donc donne sa clé à user (fk)
+    private List<Utilisateur> user = new ArrayList<>();
 }

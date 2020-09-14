@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -26,4 +28,10 @@ public class Artiste {
 
     @Column
     private  String  nationalite;
+
+    @OneToMany(mappedBy = "artiste")
+    private List<Utilisateur> users = new ArrayList<>();
+
+    @ManyToMany
+    private List<Article> articles = new ArrayList<>();
 }

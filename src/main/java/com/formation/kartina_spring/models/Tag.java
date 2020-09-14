@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,4 +19,7 @@ public class Tag {
 
     @Column(length = 100)
     private String nom;
+
+    @ManyToMany
+    private List<Article> articles = new ArrayList<>();
 }

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +20,7 @@ public class Cadre {
 
     @Enumerated(EnumType.STRING)
     private CadreEnum cadreEnum;
+
+    @ManyToMany
+    private List<Finition> finitions = new ArrayList<>();
 }

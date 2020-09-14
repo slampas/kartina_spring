@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,4 +23,7 @@ public class CodePromotionnel {
 
     @Temporal(TemporalType.DATE)
     private Calendar date_limite;
+
+    @OneToMany(mappedBy = "codePromotionnel")
+    private List<Commande> commande = new ArrayList<>();
 }

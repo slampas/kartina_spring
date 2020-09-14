@@ -19,4 +19,7 @@ public class Image {
 
     @Column(length = 8)
     private Long largeur;
+
+    @ManyToOne
+    private Article article;
 }

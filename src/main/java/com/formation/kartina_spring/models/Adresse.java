@@ -37,7 +37,7 @@ public class Adresse {
     private String nom_adresse;
 
     //Liaison
-    @OneToOne
-    @JoinColumn(nullable = false) //Il ne peut pas existe d'adresse sans user
+    @OneToOne(mappedBy = "adresse")
+    @JoinColumn(nullable = false) //Il ne peut pas exister d'adresse sans utilisateur
     private Utilisateur user;
 }

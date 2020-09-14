@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +20,10 @@ public class Format {
 
     @Enumerated(EnumType.STRING)
     private FormatEnum formatEnum;
+
+    @ManyToMany
+    private List<Article> articles = new ArrayList<>();
+
+    @ManyToMany
+    private List<Finition> finitions = new ArrayList<>();
 }
