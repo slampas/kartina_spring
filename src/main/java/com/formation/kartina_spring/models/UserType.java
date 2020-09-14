@@ -1,13 +1,11 @@
 package com.formation.kartina_spring.models;
 
+import com.formation.kartina_spring.emums.RoleUtilisateur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +16,6 @@ public class UserType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long type_id;
 
-    private String user_emun;
+    @Enumerated(EnumType.STRING)
+    private RoleUtilisateur user_emun;
 }

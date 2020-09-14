@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +19,6 @@ public class CodePromotionnel {
     @Column(columnDefinition = "text")
     private String description;
 
-    private String date_limite;
+    @Temporal(TemporalType.DATE)
+    private Calendar date_limite;
 }

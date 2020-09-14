@@ -23,6 +23,7 @@ public class Adresse {
 
     @Column(length = 40)
     private String complement_voie;
+
     private String ville;
 
     @Column(length = 10)

@@ -1,12 +1,11 @@
 package com.formation.kartina_spring.models;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -29,10 +28,14 @@ public class Utilisateur {
     @Column(length = 16)
     private String telephone;
 
-    @Column(length = 50)
+    @Transient
     private String password;
+
+    @Column(length = 150, nullable = false)
+    private String passwordHash;
 
     @Column(nullable = false)
     private String salt;
+
 
 }
