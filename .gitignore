@@ -32,8 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-### application properties ###
-application.properties
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/maven,java-web,java,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=maven,java-web,java,intellij
@@ -183,3 +182,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/maven,java-web,java,intellij
+
+### application properties ###
+# application.propertiess
