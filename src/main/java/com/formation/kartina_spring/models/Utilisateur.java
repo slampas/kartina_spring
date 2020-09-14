@@ -37,5 +37,11 @@ public class Utilisateur {
     @Column(nullable = false)
     private String salt;
 
+    //Liaison
+    //Un user habite à 0 ou 1 adresse
+    @OneToOne(mappedBy = "user")
+    private Adresse adresse;
 
+    @ManyToOne
+    private UserType role;
 }

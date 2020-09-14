@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +19,7 @@ public class UserType {
 
     @Enumerated(EnumType.STRING)
     private RoleUtilisateur user_emun;
+
+    @OneToMany(mappedBy = "role")
+    private List<Utilisateur> users;
 }

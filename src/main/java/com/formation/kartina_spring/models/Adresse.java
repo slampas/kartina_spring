@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -34,4 +35,9 @@ public class Adresse {
 
     @Column(length = 50)
     private String nom_adresse;
+
+    //Liaison
+    @OneToOne
+    @JoinColumn(nullable = false) //Il ne peut pas existe d'adresse sans user
+    private Utilisateur user;
 }
