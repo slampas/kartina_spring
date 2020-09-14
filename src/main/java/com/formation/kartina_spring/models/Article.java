@@ -27,4 +27,5 @@ public class Article {
 
     @Temporal(TemporalType.DATE)
     private Calendar dateAjout;
+
 }
