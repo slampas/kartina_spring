@@ -1,6 +1,6 @@
 package com.formation.kartina_spring.models;
 
-import com.formation.kartina_spring.emums.OrientationEnun;
+import com.formation.kartina_spring.enums.OrientationEnun;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
 package com.formation.kartina_spring.models;
 
-import com.formation.kartina_spring.emums.RoleUtilisateur;
+import com.formation.kartina_spring.enums.RoleUtilisateur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

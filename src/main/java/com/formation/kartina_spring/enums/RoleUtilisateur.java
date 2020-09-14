@@ -1,4 +1,4 @@
-package com.formation.kartina_spring.emums;
+package com.formation.kartina_spring.enums;
 
 public enum RoleUtilisateur {
     ADMIN, UTILISATEUR
