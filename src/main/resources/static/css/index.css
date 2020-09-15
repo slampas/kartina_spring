@@ -1,0 +1,876 @@
+body {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Rubik', Tahoma, sans-serif;
+    min-width: 600px;
+    max-width: 100vw;
+}
+
+/****HEADER****/
+
+header div#header_container {
+    background-color: rgb(230, 230, 230);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+header div#header_container section#haut {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px solid grey;
+}
+
+header div#header_container section#haut div {
+    margin: 5px;
+}
+
+header div#header_container section#haut div a img#logo {
+    max-width: 100%;
+    height: auto;
+}
+
+header div#header_container section#haut div form input {
+    width: 300px;
+    height: 24px;
+    background: no-repeat right url(../images/icones/search.png);
+    background-color: white;
+}
+
+header div#header_container section#haut div a, header div#header_container section#bas ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header div#header_container section#haut div a:hover, header div#header_container section#bas ul li a:hover {
+    text-decoration: underline;
+}
+
+header div#header_container section#bas ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+}
+
+header div#header_container section#bas ul li {
+    margin: 5px;
+}
+
+/*Fil d'Ariane*/
+
+.fil ul {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}
+
+.fil li {
+    text-transform: capitalize;
+}
+
+.fil li a {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 36px;
+    color: white;
+    padding: 0 10px 0 60px;
+    background: #666;
+    background: linear-gradient(#acacac, #333);
+    position: relative;
+}
+
+.fil ul li span {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 36px;
+    color: white;
+    padding: 0 10px 0 60px;
+    background: #666;
+    background: linear-gradient(#acacac, #333);
+    position: relative;
+}
+
+.fil ul li a:first-child {
+    padding-left: 46px;
+    border-radius: 5px 0 0 5px;
+}
+
+.fil ul li a:first-child:before {
+    left: 14px;
+}
+
+.fil ul li a:last-child {
+    border-radius: 0 5px 5px 0;
+    padding-right: 20px;
+}
+
+.fil ul ul li a.active, .fil ul li a:hover {
+    background: #333;
+    background: linear-gradient(#acacac, #000);
+}
+
+.fil ul li a.active:after, .fil ul li a:hover:after {
+    background: #333;
+    background: linear-gradient(135deg, #acacac, #000);
+}
+
+.fil ul li a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -18px;
+    width: 36px;
+    height: 36px;
+    transform: scale(0.707) rotate(45deg);
+    z-index: 1;
+    background: #666;
+    background: linear-gradient(135deg, #acacac, #333);
+    box-shadow: 2px -2px 0 2px rgba(0, 0, 0, 0.4), 3px -3px 0 2px rgba(255, 255, 255, 0.1);
+    border-radius: 0 5px 0 50px;
+}
+
+/****FIN_HEADER****/
+
+/****FOOTER****/
+
+footer section#footer {
+    border-top: 2px solid grey;
+    background-color: rgb(230, 230, 230);
+}
+
+footer section#footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+    margin: 0px;
+}
+
+footer section#footer ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer section#footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/****FIN_FOOTER****/
+
+/*************/
+
+/****INDEX****/
+
+/*************/
+
+/****SECTION NOUVELLES_OEUVRES****/
+
+section#nouvelles_oeuvres {
+    width: 100%;
+}
+
+section#nouvelles_oeuvres article figure {
+    width: 100%;
+    height: 150px;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    position: relative;
+}
+
+section#nouvelles_oeuvres article figure img {
+    filter: blur(3px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section#nouvelles_oeuvres article figure figcaption {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+section#nouvelles_oeuvres article figure figcaption div {
+    font-size: 1.5em;
+}
+
+section#nouvelles_oeuvres article figure figcaption div h3 {
+    text-align: left;
+    margin: 0px;
+}
+
+section#nouvelles_oeuvres article figure figcaption div p {
+    text-align: left;
+    margin: 0px;
+}
+
+section#nouvelles_oeuvres article figure figcaption div p:last-child {
+    text-align: left;
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
+section#nouvelles_oeuvres article figure figcaption div p a {
+    color: inherit;
+}
+
+section#nouvelles_oeuvres article figure figcaption div p a:visited {
+    color: inherit;
+}
+
+section#nouvelles_oeuvres article figure figcaption div p a:hover {
+    color: white;
+}
+
+/****FIN SECTION NOUVELLES OEUVRES****/
+
+/****SECTION PHOTOGRAPHIE D'ART****/
+
+section#photographies {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background: center center url("../images/bgi.jpg") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+section#photographies div.flex_photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+section#photographies article {
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 25%;
+    min-width: 230px;
+}
+
+section#photographies article figure img {
+    width: 100%;
+    height: auto;
+}
+
+.zoomImg img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .7s ease-in-out;
+    transition: .9s ease-in-out;
+}
+
+.zoomImg:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
+    /* width: 100%; */
+    height: auto;
+}
+
+section#photographies article figure figcaption {
+    text-align: right;
+    padding: 3px;
+    font-size: 0.8em;
+}
+
+/****FIN SECTION PHOTOGRAPHIE D'ART****/
+
+/****SECTION QUATRO****/
+
+section#quatro {
+    width: 100%;
+    text-align: center;
+    /*Grille de 2x2 */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+section#quatro article#filtre_voyage {
+    /* haut gauche */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+section#quatro article#filtre_noir_et_blanc {
+    /* haut droit */
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+}
+
+section#quatro article#page_artiste {
+    /* bas gauche */
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+}
+
+section#quatro article#filtre_derniers_exemplaires {
+    /* bas droit */
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+}
+
+section#quatro article figure {
+    margin: 0px;
+    position: relative;
+    height: 100%;
+    /*Definir une hauteur dans le parent pour utiliser object-fit*/
+}
+
+section#quatro article figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section#quatro article figure figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+section#quatro article figure figcaption div {
+    font-size: 1.5em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+section#quatro article figure figcaption div p {
+    margin: 5px;
+}
+
+section#quatro article figure figcaption div p:last-child {
+    margin-bottom: 10px;
+    margin-top: 30px
+}
+
+section#quatro article figure figcaption div p a {
+    color: inherit;
+}
+
+section#quatro article figure figcaption div p a:visited {
+    color: inherit;
+}
+
+section#quatro article figure figcaption div p a:hover {
+    color: black;
+}
+
+/****FIN SECTION QUATRO****/
+
+/**********************/
+
+/****PARCOURS PHOTO****/
+
+/**********************/
+
+/****PAGINATION****/
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/****FIN_PAGINATION****/
+
+/****SECTION_FILTRES****/
+
+section#container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 5px;
+    margin-top: 250px;
+}
+
+section#container div#section_filtre {
+    min-width: 200px;
+    width: 20%;
+    max-width: 250px;
+}
+
+section#container div#section_filtre ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 5px;
+}
+
+section#container div#section_filtre ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section#container div#section_filtre ul li a:hover {
+    text-decoration: underline;
+}
+
+.titre_filtre {
+    border-bottom: 2px solid black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.lien_effacer {
+    font-size: 0.8em;
+    font-weight: normal;
+    text-decoration: none;
+    color: inherit;
+}
+
+.lien_effacer:hover {
+    text-decoration: underline;
+    color: grey;
+}
+
+.theme_clique {
+    color: rgb(185, 185, 40);
+}
+
+.theme_clique:hover {
+    color: rgb(200, 200, 40);
+}
+
+/****FIN_SECTION_FILTRES****/
+
+/****SECTION_RESULTATS****/
+
+section#container div#section_resultat {
+    width: 80%;
+    padding: 5px 0px 5px 0px;
+}
+
+section#container div#section_resultat_barre_tri_photo {
+    background-color: white;
+    padding: 5px;
+}
+
+section#container div#section_resultat_barre_tri_photo div#nb_results p {
+    margin: 5px;
+}
+
+/*Div titre*/
+
+section#container div#section_resultat_barre_tri_photo div#nb_results p span {
+    font-weight: bold;
+}
+
+section#container div#section_resultat div#section_resultat_theme_choisi p#description_theme_resultat {
+    margin: 5px;
+}
+
+section#container div#section_resultat div#section_resultat_theme_choisi p#titre_theme_resultat {
+    margin: 5px 5px 5px 0px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Formulaire tri*/
+
+section#container div#section_resultat div#section_resultat_barre_tri_photo form#choix_tri_resultat {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+section#container div#section_resultat div#section_resultat_barre_tri_photo form#choix_tri_resultat div {
+    min-width: 190px;
+}
+
+/*Affichage resultats*/
+
+section#container div#section_resultat div#section_resultat_affichage_resultats {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article {
+    /*4 max par ligne*/
+    width: 25%;
+    /*2 min par ligne*/
+    min-width: 190px;
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article figure {
+    margin: 10px;
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article figure figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article figure figcaption h4 {
+    margin: 5px;
+}
+
+section#container div#section_resultat div#section_resultat_affichage_resultats article figure figcaption p {
+    margin: 5px;
+    max-height: 300px;
+    /*Si trop de texte, scrollbar*/
+    overflow: auto;
+}
+
+/****FIN_SECTION_RESULTATS****/
+
+/**********************/
+
+/*****PAGE ARTISTE*****/
+
+/**********************/
+
+/* Page Artiste */
+
+.titre {
+    font-size: 2.9em;
+}
+
+.description {
+    text-align: justify;
+    font-size: 0.8em;
+    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.fab {
+    color: white;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+section#artiste {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 15px;
+}
+
+section#artiste div.flex_photos_Artiste {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+section#artiste article {
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 25%;
+    min-width: 230px;
+}
+
+section#artiste article figure img {
+    width: 100%;
+    height: auto;
+}
+
+.zoomPhoto img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+
+.zoomPhoto:hover img {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    height: auto;
+}
+
+section#artiste article figure figcaption {
+    text-align: right;
+    padding: 3px;
+    font-size: 0.8em;
+}
+
+/**********************/
+
+/****PARCOURS ACHAT****/
+
+/**********************/
+
+section#parcours_achat {
+    margin-top: 215px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section#parcours_achat ul {
+    list-style: none;
+}
+
+section#parcours_achat section#partie_gauche {
+    width: 50%;
+    min-width: 550px;
+}
+
+/*Partie gauche*/
+
+section#parcours_achat section#partie_gauche section#bloc_previsu article {
+    margin: 5px;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_previsu article figure {
+    text-align: center;
+    margin: 0px;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_previsu article figure img {
+    height: auto;
+    max-width: 500px;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_previsu ul li {
+    display: inline-block;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_previsu ul li img {
+    height: auto;
+    max-width: 150px;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_description {
+    margin: 5px;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_description h3, section#parcours_achat section#partie_gauche section#bloc_description h4 {
+    margin: 5px 0px;
+}
+
+/*Partie droite*/
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation table thead tr td p {
+    margin: 0px 0px 5px 0px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation table tbody tr td.hide-cells {
+    empty-cells: hide;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table {
+    margin-bottom: 10px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p {
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p:first-child {
+    border-radius: 50%;
+    background-color: rgb(216, 216, 216);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p.actif {
+    border: 2px solid rgb(38, 165, 38);
+    background-color: rgb(216, 216, 216);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p.inactif {
+    border: 2px solid rgb(165, 38, 38);
+    background-color: rgb(172, 172, 172);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td {
+    width: 33%;
+    background-color: rgb(172, 172, 172);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td.etape_selectionnee {
+    border-bottom: 3px solid black;
+    background-color: rgb(216, 216, 216);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
+    cursor: pointer;
+}
+
+/*Pour aligner label et checkbox*/
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Pour aligner dans le label*/
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Pour mettre les deux paragraphes en colonnes*/
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p {
+    margin: 5px;
+    max-width: 500px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p span {
+    font-weight: bold;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label figure {
+    margin: 0px 10px 0px 5px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div input.largeCheckbox {
+    width: 20px;
+    height: 20px;
+}
+
+.aligne_centre {
+    text-align: center;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td:first-child div {
+    float: left;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td:last-child div {
+    float: right;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td div a {
+    color: inherit;
+    text-decoration: none;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td div a:hover {
+    text-decoration: underline;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr td p.total {
+    font-weight: bold;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.aligne_centre td button {
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #0075ff;
+    color: white;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.aligne_centre td button[disabled] {
+    background-color: #94c5fd;
+}
+
+/****MEDIA QUERIES - A LAISSER EN BAS ****/
+
+/*Si plus de 650px de large */
+
+@media screen and (min-width: 650px) {
+    section#container {
+        margin-top: 215px;
+    }
+    div#content_container {
+        margin-top: 145px;
+    }
+    div.container {
+        margin-top: 215px;
+    }
+}
+
+/*Si moins de 600px de large*/
+
+@media screen and (max-width: 650px) {
+    section#container {
+        margin-top: 290px;
+    }
+    div#content_container {
+        margin-top: 230px;
+    }
+    div.container {
+        margin-top: 290px;
+    }
+}
+
+/****FIN MEDIA QUERIES****/

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Rubik&display=swap}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{ css/index.css }">
+    <title>Index</title>
+</head>
+
+<body>
+
+<th:block th:insert="~{ fragments/layouts/header }"></th:block>
+
+<th:block th:if="${ fragment }">
+    <th:block th:insert="~{ |fragments/${fragment}| }"></th:block>
+</th:block>
+
+<th:block th:insert="~{ fragments/layouts/footer }"></th:block>
+
+<script th:src="@{https://kit.fontawesome.com/c849814321.js}" crossorigin="anonymous"></script>
+</body>
+
+</html>
