@@ -22,5 +22,8 @@ public class Cadre {
     private CadreEnum cadreEnum;
 
     @ManyToMany
+    @JoinTable(name = "JointureFinitionCadre",
+            joinColumns = @JoinColumn(name = "cadreId"),
+            inverseJoinColumns = @JoinColumn(name = "finitionId"))
     private List<Finition> finitions = new ArrayList<>();
 }

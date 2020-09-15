@@ -22,8 +22,14 @@ public class Format {
     private FormatEnum formatEnum;
 
     @ManyToMany
+    @JoinTable(name = "JointureArticleFormat",
+            joinColumns = @JoinColumn(name = "formatId"),
+            inverseJoinColumns = @JoinColumn(name = "articleRef"))
     private List<Article> articles = new ArrayList<>();
 
     @ManyToMany
+    @JoinTable(name = "JointureFormatFinition",
+            joinColumns = @JoinColumn(name = "formatId"),
+            inverseJoinColumns = @JoinColumn(name = "finitionId"))
     private List<Finition> finitions = new ArrayList<>();
 }

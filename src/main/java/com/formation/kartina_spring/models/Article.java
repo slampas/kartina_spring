@@ -31,7 +31,16 @@ public class Article {
     private Calendar dateAjout;
 
     @ManyToMany
+    @JoinTable(name = "DetailCommande",
+            joinColumns = @JoinColumn(name = "articleRef"),
+            inverseJoinColumns = @JoinColumn(name = "commandeId"))
     private List<Commande> commandes = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "JointureArticleFormat",
+            joinColumns = @JoinColumn(name = "articleRef"),
+            inverseJoinColumns = @JoinColumn(name = "formatId"))
+    private List<Format> formats = new ArrayList<>();
 
     @ManyToMany
     private List<Artiste> artistes = new ArrayList<>();
@@ -48,6 +57,4 @@ public class Article {
     @ManyToMany
     private List<Tag> tags = new ArrayList<>();
 
-    @ManyToMany
-    private List<Format> formats = new ArrayList<>();
 }

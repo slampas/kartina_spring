@@ -10,7 +10,7 @@ public class Commande {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long commandeId;
 
     @Temporal(TemporalType.DATE)
     private Calendar date;
@@ -29,7 +29,10 @@ public class Commande {
     private Utilisateur user;
 
     @ManyToMany
-    private List<Article> articles  = new ArrayList<>();
+    @JoinTable(name = "DetailCommande",
+            joinColumns = @JoinColumn(name = "commandeId"),
+            inverseJoinColumns = @JoinColumn(name = "articleRef"))
+    private List<Article> articles = new ArrayList<>();
 
     @ManyToOne
     private CodePromotionnel codePromotionnel;

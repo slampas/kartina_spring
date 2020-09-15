@@ -22,8 +22,14 @@ public class Finition {
     private FinitionEnum finitionEnum;
 
     @ManyToMany
+    @JoinTable(name = "JointureFormatFinition",
+            joinColumns = @JoinColumn(name = "finitionId"),
+            inverseJoinColumns = @JoinColumn(name = "formatId"))
     private List<Format> formats = new ArrayList<>();
 
     @ManyToMany
+    @JoinTable(name = "JointureFinitionCadre",
+            joinColumns = @JoinColumn(name = "finitionId"),
+            inverseJoinColumns = @JoinColumn(name = "cadreId"))
     private List<Cadre> cadres = new ArrayList<>();
 }
