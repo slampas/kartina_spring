@@ -15,12 +15,6 @@ public class DetailCommande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long detailCommandeId;
 
-    @Column(nullable = false)
-    private Long articleRef;
-
-    @Column(nullable = false)
-    private Long commandeId;
-
     private Integer quantiteArticle;
 
     @Column(length = 100)

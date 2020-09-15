@@ -16,20 +16,17 @@ import java.util.List;
 public class Finition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Float finitionId;
+    private Long finitionId;
 
     @Enumerated(EnumType.STRING)
     private FinitionEnum finitionEnum;
 
-    @ManyToMany
-    @JoinTable(name = "JointureFormatFinition",
-            joinColumns = @JoinColumn(name = "finitionId"),
-            inverseJoinColumns = @JoinColumn(name = "formatId"))
+    @ManyToMany(mappedBy="finitions")
     private List<Format> formats = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "JointureFinitionCadre",
-            joinColumns = @JoinColumn(name = "finitionId"),
-            inverseJoinColumns = @JoinColumn(name = "cadreId"))
+            joinColumns = { @JoinColumn(name = "fk_Finition") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Cadre") })
     private List<Cadre> cadres = new ArrayList<>();
 }

@@ -30,19 +30,16 @@ public class Article {
     @Temporal(TemporalType.DATE)
     private Calendar dateAjout;
 
-    @ManyToMany
-    @JoinTable(name = "DetailCommande",
-            joinColumns = @JoinColumn(name = "articleRef"),
-            inverseJoinColumns = @JoinColumn(name = "commandeId"))
+    @ManyToMany(mappedBy="articles")
     private List<Commande> commandes = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "JointureArticleFormat",
-            joinColumns = @JoinColumn(name = "articleRef"),
-            inverseJoinColumns = @JoinColumn(name = "formatId"))
+            joinColumns = { @JoinColumn(name = "fk_Article") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Format") })
     private List<Format> formats = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "articles")
     private List<Artiste> artistes = new ArrayList<>();
 
     @OneToMany(mappedBy = "article")
@@ -52,9 +49,14 @@ public class Article {
     private Orientation orientation;
 
     @ManyToMany
+    @JoinTable(name = "JointureArticleTheme",
+            joinColumns = { @JoinColumn(name = "fk_Article") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Theme") })
     private List<Theme> themes = new ArrayList<>();
 
     @ManyToMany
+    @JoinTable(name = "JointureArticleTag",
+            joinColumns = { @JoinColumn(name = "fk_Article") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Tag") })
     private List<Tag> tags = new ArrayList<>();
-
 }

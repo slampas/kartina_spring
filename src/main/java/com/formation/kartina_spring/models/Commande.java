@@ -28,10 +28,15 @@ public class Commande {
     @ManyToOne
     private Utilisateur user;
 
+    //    @ManyToMany
+//    @JoinTable(name = "DetailCommande",
+//            joinColumns = @JoinColumn(name = "commandeId"),
+//            inverseJoinColumns = @JoinColumn(name = "articleRef"))
+//    private List<Article> articles = new ArrayList<>();
     @ManyToMany
     @JoinTable(name = "DetailCommande",
-            joinColumns = @JoinColumn(name = "commandeId"),
-            inverseJoinColumns = @JoinColumn(name = "articleRef"))
+            joinColumns = { @JoinColumn(name = "fk_Commande") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Article") })
     private List<Article> articles = new ArrayList<>();
 
     @ManyToOne

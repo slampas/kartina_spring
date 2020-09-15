@@ -15,11 +15,5 @@ public class JointureArticleFormat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleFormatId;
 
-    @Column(nullable = false)
-    private Long articleRef;
-
-    @Column(nullable = false)
-    private Long formatId;
-
     private Float coefficientPrix;
 }

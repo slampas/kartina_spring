@@ -15,11 +15,5 @@ public class JointureFinitionCadre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long finitionCadreId;
 
-    @Column(nullable = false)
-    private Long finitionId;
-
-    @Column(nullable = false)
-    private Long cadreId;
-
     private Float coefficientPrix;
 }

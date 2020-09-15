@@ -20,6 +20,6 @@ public class Tag {
     @Column(length = 100)
     private String nom;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "tags")
     private List<Article> articles = new ArrayList<>();
 }

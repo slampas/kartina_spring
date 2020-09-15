@@ -15,11 +15,5 @@ public class JointureFormatFinition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long formatFinitionId;
 
-    @Column(nullable = false)
-    private Long formatId;
-
-    @Column(nullable = false)
-    private Long finitionId;
-
     private Float coefficientPrix;
 }

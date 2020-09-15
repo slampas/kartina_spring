@@ -21,6 +21,6 @@ public class Theme {
     @Column(length = 100)
     private String nom;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="themes")
     private List<Article> articles = new ArrayList<>();
 }

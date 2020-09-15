@@ -21,15 +21,13 @@ public class Format {
     @Enumerated(EnumType.STRING)
     private FormatEnum formatEnum;
 
-    @ManyToMany
-    @JoinTable(name = "JointureArticleFormat",
-            joinColumns = @JoinColumn(name = "formatId"),
-            inverseJoinColumns = @JoinColumn(name = "articleRef"))
+
+    @ManyToMany(mappedBy="formats")
     private List<Article> articles = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "JointureFormatFinition",
-            joinColumns = @JoinColumn(name = "formatId"),
-            inverseJoinColumns = @JoinColumn(name = "finitionId"))
+            joinColumns = { @JoinColumn(name = "fk_Format") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_Finition") })
     private List<Finition> finitions = new ArrayList<>();
 }
