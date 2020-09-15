@@ -17,4 +17,8 @@ public class ArticleService {
     public void save(Article article) {
         articleRepository.save(article);
     }
+
+    public void findAll(Article article) {
+        articleRepository.findAll();
+    }
 }
