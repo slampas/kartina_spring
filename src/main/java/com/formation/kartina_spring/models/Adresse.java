@@ -14,7 +14,7 @@ import java.util.List;
 public class Adresse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long adresse_Id;
+    private Long adresseId;
 
     @Column(length = 10)
     private String num;
@@ -23,18 +23,18 @@ public class Adresse {
     private String voie;
 
     @Column(length = 40)
-    private String complement_voie;
+    private String complementVoie;
 
     private String ville;
 
     @Column(length = 10)
-    private Long code_postale;
+    private Long codePostal;
 
     @Column(length = 100)
     private String pays;
 
     @Column(length = 50)
-    private String nom_adresse;
+    private String nomAdresse;
 
     //Liaison
     @OneToOne(mappedBy = "adresse")

@@ -31,11 +31,9 @@ public class Article {
     private Calendar dateAjout;
 
     @ManyToMany
-    @JoinColumn(name = "detailCommande")
     private List<Commande> commandes = new ArrayList<>();
 
     @ManyToMany
-    @JoinColumn(name = "artiste_articles")
     private List<Artiste> artistes = new ArrayList<>();
 
     @OneToMany(mappedBy = "article")
@@ -45,14 +43,11 @@ public class Article {
     private Orientation orientation;
 
     @ManyToMany
-    @JoinColumn(name = "artiste_themes")
     private List<Theme> themes = new ArrayList<>();
 
     @ManyToMany
-    @JoinColumn(name = "artiste_tags")
     private List<Tag> tags = new ArrayList<>();
 
     @ManyToMany
-    @JoinColumn(name = "artiste_formats")
     private List<Format> formats = new ArrayList<>();
 }

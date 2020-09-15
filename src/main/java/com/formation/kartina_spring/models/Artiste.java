@@ -15,7 +15,7 @@ import java.util.List;
 public class Artiste {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long artiste_id;
+    private  Long artisteId;
 
     @Column(nullable = false)
     private  String biographie;

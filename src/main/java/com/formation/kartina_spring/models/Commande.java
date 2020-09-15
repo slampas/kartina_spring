@@ -20,10 +20,10 @@ public class Commande {
     private Integer TVA;
 
     @Temporal(TemporalType.DATE)
-    private Calendar date_livraison;
+    private Calendar dateLivraison;
 
     @Temporal(TemporalType.DATE)
-    private Calendar date_paiement;
+    private Calendar datePaiement;
 
     @ManyToOne
     private Utilisateur user;

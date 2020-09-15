@@ -16,13 +16,13 @@ import java.util.List;
 public class CodePromotionnel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long code_id;
+    private Long codeId;
 
     @Column(columnDefinition = "text")
     private String description;
 
     @Temporal(TemporalType.DATE)
-    private Calendar date_limite;
+    private Calendar dateLimite;
 
     @OneToMany(mappedBy = "codePromotionnel")
     private List<Commande> commande = new ArrayList<>();

@@ -10,7 +10,7 @@ import java.util.List;
 public class Orientation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orientation_id;
+    private Long orientationId;
 
     @Column(length = 100, nullable = false)
     private OrientationEnun nom;

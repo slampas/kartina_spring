@@ -16,10 +16,10 @@ import java.util.List;
 public class UserType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long type_id;
+    private Long typeId;
 
     @Enumerated(EnumType.STRING)
-    private RoleUtilisateur user_emun;
+    private RoleUtilisateur userEnum;
 
     //Liaison entre tables
     @OneToMany(mappedBy = "role") //Plus gros max donc donne sa clé à user (fk)
