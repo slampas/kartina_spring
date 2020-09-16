@@ -11,9 +11,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 public class JointureFormatFinition {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long formatFinitionId;
+    @EmbeddedId
+    private JointureFormatFinitionId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("formatId")
+    private Format format;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("finitionId")
+    private Finition finition;
 
     private Float coefficientPrix;
 }

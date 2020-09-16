@@ -11,9 +11,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 public class JointureArticleFormat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long articleFormatId;
+
+    @EmbeddedId
+    private JointureArticleFormatId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("articleId")
+    private Article article;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("formatId")
+    private Format format;
 
     private Float coefficientPrix;
 }

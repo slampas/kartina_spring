@@ -1,15 +1,22 @@
 package com.formation.kartina_spring.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Commande {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long commandeId;
 
     @Temporal(TemporalType.DATE)
@@ -28,16 +35,13 @@ public class Commande {
     @ManyToOne
     private Utilisateur user;
 
-    //    @ManyToMany
-//    @JoinTable(name = "DetailCommande",
-//            joinColumns = @JoinColumn(name = "commandeId"),
-//            inverseJoinColumns = @JoinColumn(name = "articleRef"))
-//    private List<Article> articles = new ArrayList<>();
-    @ManyToMany
-    @JoinTable(name = "DetailCommande",
-            joinColumns = { @JoinColumn(name = "fk_Commande") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_Article") })
-    private List<Article> articles = new ArrayList<>();
+    //https://vladmihalcea.com/the-best-way-to-map-a-many-to-many-association-with-extra-columns-when-using-jpa-and-hibernate/
+    @OneToMany(
+            mappedBy = "commande",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<DetailCommande> articles = new ArrayList<>();
 
     @ManyToOne
     private CodePromotionnel codePromotionnel;

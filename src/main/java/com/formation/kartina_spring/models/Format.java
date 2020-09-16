@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.NaturalIdCache;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,21 +18,31 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@NaturalIdCache
+@Cache(
+        usage = CacheConcurrencyStrategy.READ_WRITE
+)
 public class Format {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long formatId;
 
+    @NaturalId
     @Enumerated(EnumType.STRING)
     private FormatEnum formatEnum;
 
 
-    @ManyToMany(mappedBy="formats")
-    private List<Article> articles = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "format",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JointureArticleFormat> articles = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "JointureFormatFinition",
-            joinColumns = { @JoinColumn(name = "fk_Format") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_Finition") })
-    private List<Finition> finitions = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "format",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JointureFormatFinition> finitions = new ArrayList<>();
 }

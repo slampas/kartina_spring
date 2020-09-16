@@ -11,9 +11,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 public class DetailCommande {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long detailCommandeId;
+    @EmbeddedId
+    private DetailCommandeId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("commandeId")
+    private Commande commande;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("articleId")
+    private Article article;
+
 
     private Integer quantiteArticle;
 

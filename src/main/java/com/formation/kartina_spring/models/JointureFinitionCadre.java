@@ -11,9 +11,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 public class JointureFinitionCadre {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long finitionCadreId;
+    @EmbeddedId
+    private JointureFinitionCadreId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("finitionId")
+    private Finition finition;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("cadreId")
+    private Cadre cadre;
 
     private Float coefficientPrix;
 }

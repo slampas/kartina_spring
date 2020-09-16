@@ -9,18 +9,32 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.NaturalIdCache;
+import org.hibernate.annotations.Cache;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@NaturalIdCache
+@Cache(
+        usage = CacheConcurrencyStrategy.READ_WRITE
+)
 @Entity
 public class Cadre {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long cadreId;
 
+    @NaturalId
     @Enumerated(EnumType.STRING)
     private CadreEnum cadreEnum;
 
-    @ManyToMany(mappedBy="cadres")
-    private List<Finition> finitions = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "cadre",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JointureFinitionCadre> finitions = new ArrayList<>();
 }

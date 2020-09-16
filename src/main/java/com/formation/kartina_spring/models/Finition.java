@@ -4,6 +4,7 @@ import com.formation.kartina_spring.enums.FinitionEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,18 +16,24 @@ import java.util.List;
 @Entity
 public class Finition {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long finitionId;
 
+    @NaturalId
     @Enumerated(EnumType.STRING)
     private FinitionEnum finitionEnum;
 
-    @ManyToMany(mappedBy="finitions")
-    private List<Format> formats = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "finition",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JointureFormatFinition> formats = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "JointureFinitionCadre",
-            joinColumns = { @JoinColumn(name = "fk_Finition") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_Cadre") })
-    private List<Cadre> cadres = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "finition",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JointureFinitionCadre> cadres = new ArrayList<>();
 }
