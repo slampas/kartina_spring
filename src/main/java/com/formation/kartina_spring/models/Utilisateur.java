@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,10 @@ import java.util.List;
 public class Utilisateur {
 
     @Id
+    @Column(nullable = false)
     private String email;
 
-    @Column(length = 10)
+    @Column(length = 10, nullable = false)
     private String civilite;
 
     @Column(nullable = false)
@@ -27,7 +29,7 @@ public class Utilisateur {
     @Column(nullable = false)
     private String prenom;
 
-    @Column(length = 16)
+    @Column(length = 16, nullable = false)
     private String telephone;
 
     @Transient
@@ -41,6 +43,7 @@ public class Utilisateur {
 
     //Liaison entre tables
     @ManyToOne
+    @JoinColumn(nullable = false) //Il ne peut pas d'user sans role
     private UserType role;
 
     @OneToOne

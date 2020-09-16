@@ -18,23 +18,31 @@ public class Facture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long factureId;
 
+    @Column(nullable = false)
     private Integer prixHt;
 
+    @Column(nullable = false)
     private Integer TVA;
 
+    @Column(nullable = false)
     private String paiementId;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar dateLivraison;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar datePaiement;
 
+    @Column(nullable = false)
     private String userName;
+
+    @Column(nullable = false)
     private String userForname;
 
     @Email
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String userEmail;
 
     @Column(columnDefinition = "TEXT")

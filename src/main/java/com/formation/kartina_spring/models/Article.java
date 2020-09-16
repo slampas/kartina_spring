@@ -26,6 +26,7 @@ public class Article {
     private Long articleRef;
 
     @NaturalId
+    @Column(nullable = false)
     private String name;
 
     @NaturalId
@@ -42,6 +43,7 @@ public class Article {
 
     @NaturalId
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar dateAjout;
 
     @OneToMany(

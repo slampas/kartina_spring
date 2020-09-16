@@ -29,6 +29,7 @@ public class Format {
 
     @NaturalId
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private FormatEnum formatEnum;
 
 

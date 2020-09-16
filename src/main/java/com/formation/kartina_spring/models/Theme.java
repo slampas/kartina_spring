@@ -18,7 +18,7 @@ public class Theme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long themeId;
 
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String nom;
 
     @ManyToMany(mappedBy="themes")

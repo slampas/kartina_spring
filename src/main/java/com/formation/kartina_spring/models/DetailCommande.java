@@ -22,15 +22,15 @@ public class DetailCommande {
     @MapsId("articleId")
     private Article article;
 
-
+    @Column(nullable = false)
     private Integer quantiteArticle;
 
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String format;
 
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String finition;
 
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String cadre;
 }

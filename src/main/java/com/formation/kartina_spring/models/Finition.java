@@ -21,6 +21,7 @@ public class Finition {
 
     @NaturalId
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private FinitionEnum finitionEnum;
 
     @OneToMany(

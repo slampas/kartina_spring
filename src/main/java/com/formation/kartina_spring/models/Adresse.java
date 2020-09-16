@@ -16,21 +16,22 @@ public class Adresse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long adresseId;
 
-    @Column(length = 10)
+    @Column(length = 10, nullable = false)
     private String num;
 
-    @Column(length = 10)
+    @Column(length = 10, nullable = false)
     private String voie;
 
     @Column(length = 40)
     private String complementVoie;
 
+    @Column(nullable = false)
     private String ville;
 
-    @Column(length = 10)
+    @Column(length = 10, nullable = false)
     private Long codePostal;
 
-    @Column(length = 100)
+    @Column(length = 100, nullable = false)
     private String pays;
 
     @Column(length = 50)

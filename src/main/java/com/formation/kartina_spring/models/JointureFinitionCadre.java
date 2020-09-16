@@ -22,5 +22,6 @@ public class JointureFinitionCadre {
     @MapsId("cadreId")
     private Cadre cadre;
 
+    @Column(nullable = false)
     private Float coefficientPrix;
 }

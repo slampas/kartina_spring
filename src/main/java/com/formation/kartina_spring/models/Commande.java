@@ -20,19 +20,25 @@ public class Commande {
     private Long commandeId;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar date;
 
+    @Column(nullable = false)
     private Integer prixTotalHt;
 
+    @Column(nullable = false)
     private Integer TVA;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar dateLivraison;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar datePaiement;
 
     @ManyToOne
+    @JoinColumn(nullable = false) //Il ne peut pas exister de commande sans user
     private Utilisateur user;
 
     //https://vladmihalcea.com/the-best-way-to-map-a-many-to-many-association-with-extra-columns-when-using-jpa-and-hibernate/

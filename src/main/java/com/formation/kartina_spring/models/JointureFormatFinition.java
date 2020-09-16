@@ -22,5 +22,6 @@ public class JointureFormatFinition {
     @MapsId("finitionId")
     private Finition finition;
 
+    @Column(nullable = false)
     private Float coefficientPrix;
 }

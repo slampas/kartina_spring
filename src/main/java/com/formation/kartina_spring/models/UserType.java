@@ -19,6 +19,7 @@ public class UserType {
     private Long typeId;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private RoleUtilisateur userEnum;
 
     //Liaison entre tables

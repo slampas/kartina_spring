@@ -29,6 +29,7 @@ public class Cadre {
 
     @NaturalId
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private CadreEnum cadreEnum;
 
     @OneToMany(

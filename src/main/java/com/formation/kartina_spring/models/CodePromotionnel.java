@@ -18,10 +18,11 @@ public class CodePromotionnel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codeId;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String description;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Calendar dateLimite;
 
     @OneToMany(mappedBy = "codePromotionnel")

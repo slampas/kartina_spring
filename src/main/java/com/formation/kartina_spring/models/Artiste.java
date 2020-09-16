@@ -26,7 +26,7 @@ public class Artiste {
     @Column(nullable = false)
     private  String prenom;
 
-    @Column
+    @Column(nullable = false)
     private  String  nationalite;
 
     @OneToMany(mappedBy = "artiste")

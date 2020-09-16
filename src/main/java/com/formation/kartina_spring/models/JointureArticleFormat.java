@@ -23,5 +23,6 @@ public class JointureArticleFormat {
     @MapsId("formatId")
     private Format format;
 
+    @Column(nullable = false)
     private Float coefficientPrix;
 }
