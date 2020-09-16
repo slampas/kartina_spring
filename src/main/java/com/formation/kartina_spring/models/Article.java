@@ -24,11 +24,15 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleRef;
-
+    
+    
     @NaturalId
     @Column(nullable = false)
     private String name;
-
+ 
+ 
+ 
+    /**doublon  à voir avec marc antoine**/
     @NaturalId
     @Column(nullable = false)
     private String nom;
