@@ -5,6 +5,8 @@ import com.formation.kartina_spring.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ArticleService {
     private ArticleRepository articleRepository;
@@ -18,7 +20,7 @@ public class ArticleService {
         articleRepository.save(article);
     }
 
-    public void findAll(Article article) {
-        articleRepository.findAll();
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 }
