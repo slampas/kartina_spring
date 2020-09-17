@@ -114,54 +114,15 @@
                 </div>
             </form>
             <div id=nb_results>
-                <p> <span>15</span> oeuvres trouvées</p>
+                <p><span>15</span> oeuvres trouvées</p>
             </div>
         </div>
+
         <div id="section_resultat_affichage_resultats">
-
-            <article>
-                <figure>
-                    <img th:src="@{|images/1647.jpg|}" alt="">
-                    <figcaption>
-                        <h4>Titre de l'oeuvre</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, eaque animi! Ea natus
-                            iure eos cum dolorum, assumenda odit quia officiis tenetur dolor inventore quo a debitis
-                            sunt distinctio accusamus!</p>
-                    </figcaption>
-                </figure>
-            </article>
-
-            <article>
-                <figure>
-                    <img th:src="@{|images/2371.jpg|}" alt="">
-                    <figcaption>
-                        <h4>Titre de l'oeuvre</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo velit placeat incidunt
-                            accusamus eveniet explicabo hic distinctio deserunt veniam! Dolorum iure aperiam culpa.
-                            Aperiam similique blanditiis qui quasi hic numquam!
-                            Omnis nihil suscipit sequi eos ut est perferendis. Dolorum itaque quibusdam voluptatum
-                            voluptate nisi dicta molestiae corporis placeat animi atque autem facere fugit ab, magni
-                            tempora incidunt obcaecati aperiam? Esse.
-                            Dolor sed rerum quod laboriosam architecto quidem odit, dignissimos magni reprehenderit
-                            id porro! Voluptate beatae doloribus, quae atque, voluptates ex odit ut nobis
-                            reprehenderit modi, delectus eaque sequi cumque inventore!
-                            Similique dolorum id quasi nostrum. Consequatur maxime, quo ducimus numquam iusto
-                            sapiente autem qui. Error omnis nemo enim laudantium architecto tenetur tempora, odio
-                            nostrum sapiente maxime eum praesentium ut id!</p>
-                    </figcaption>
-                </figure>
-            </article>
+            <!-- :: result cible le th:fragment="result" de la page fragments.html -->
+            <th:block th:insert="~{ fragments/parcours_photo_fragments/fragments :: result }"></th:block>
         </div>
-        <div class="pagination" id="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
+        <th:block th:insert="~{ fragments/parcours_photo_fragments/fragments :: pagination }"></th:block>
     </div>
     <script th:src="@{|js/parcours_photos.js|}"></script>
 </section>

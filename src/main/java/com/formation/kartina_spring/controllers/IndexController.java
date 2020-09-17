@@ -14,7 +14,7 @@ public class IndexController {
     }
 
     //Page parcours des photographies
-    @GetMapping("/photographies")
+    @GetMapping("/explore")
     public String getPhotographies(Model model) {
         model.addAttribute("fragment", "parcours_photo");
         return "index";
