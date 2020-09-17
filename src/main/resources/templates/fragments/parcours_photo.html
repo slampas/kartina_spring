@@ -1,0 +1,167 @@
+<section id="container" xmlns:th="http://www.thymeleaf.org">
+    <div id="section_filtre">
+        <div class="titre_filtre">Thèmes</div>
+        <ul id="liste_theme">
+            <li><a href="javascript:void(0)">Femme</a></li>
+            <li><a href="javascript:void(0)">Nature</a></li>
+            <li><a href="javascript:void(0)">Noir et Blanc</a></li>
+            <li><a href="javascript:void(0)">Paysage</a></li>
+            <li><a href="javascript:void(0)">Urban</a></li>
+            <li><a href="javascript:void(0)">Vintage</a></li>
+            <li><a href="javascript:void(0)">Voyage</a></li>
+        </ul>
+
+        <form action="" name="form_choix_filtrage_Orientation">
+            <div class="titre_filtre" id="titre_Orientation">Orientation</div>
+            <div class="div_checkbox_label_Orientation">
+                <input type="checkbox" name="orientation_portrait" id="orientation_portrait"
+                       value="orientation_portrait">
+                <label for="orientation_portrait">Portrait</label>
+            </div>
+            <div class="div_checkbox_label_Orientation">
+                <input type="checkbox" name="orientation_paysage" id="orientation_paysage"
+                       value="orientation_paysage">
+                <label for="orientation_paysage">Paysage</label>
+
+            </div>
+            <div class="div_checkbox_label_Orientation">
+                <input type="checkbox" name="orientation_carre" id="orientation_carre" value="orientation_carre">
+                <label for="orientation_carre">Carré</label>
+            </div>
+            <div class="div_checkbox_label_Orientation">
+                <input type="checkbox" name="orientation_panoramique" id="orientation_panoramique"
+                       value="orientation_panoramique">
+                <label for="orientation_panoramique">Panoramique</label>
+            </div>
+        </form>
+        <form action="" name="form_choix_filtrage_Formats">
+            <div class="titre_filtre" id="titre_Formats">Formats</div>
+            <div class="div_checkbox_label_Formats">
+                <input type="checkbox" name="format_classique" id="format_classique" value="format_classique">
+                <label for="format_classique">Classique</label>
+            </div>
+            <div class="div_checkbox_label_Formats">
+                <input type="checkbox" name="format_grand" id="format_grand" value="format_grand">
+                <label for="format_grand">Grand</label>
+            </div>
+            <div class="div_checkbox_label_Formats">
+                <input type="checkbox" name="format_geant" id="format_geant" value="format_geant">
+                <label for="format_geant">Géant</label>
+            </div>
+            <div class="div_checkbox_label_Formats">
+                <input type="checkbox" name="format_collector" id="format_collector" value="format_collector">
+                <label for="format_collector">Collector</label>
+            </div>
+        </form>
+        <form action="" name="form_choix_filtrage_Prix">
+            <div class="titre_filtre" id="titre_Prix">Prix</div>
+            <div class="div_checkbox_label_Prix">
+                <input type="checkbox" name="prix_moins_50" id="prix_moins_50" value="prix_moins_50">
+                <label for="prix_moins_50">Moins de 50 €</label>
+            </div>
+            <div class="div_checkbox_label_Prix">
+                <input type="checkbox" name="prix_50_100" id="prix_50_100" value="prix_50_100">
+                <label for="prix_50_100">De 50 € à 100 €</label>
+            </div>
+            <div class="div_checkbox_label_Prix">
+                <input type="checkbox" name="prix_100_200" id="prix_100_200" value="prix_100_200">
+                <label for="prix_100_200">De 100 € à 200 €</label>
+            </div>
+            <div class="div_checkbox_label_Prix">
+                <input type="checkbox" name="prix_200_500" id="prix_200_500" value="prix_200_500">
+                <label for="prix_200_500">De 200 € à 500 €</label>
+            </div>
+            <div class="div_checkbox_label_Prix">
+                <input type="checkbox" name="prix_500_1000" id="prix_500_1000" value="prix_500_1000">
+                <label for="prix_500_1000">De 500 € à 1000 €</label>
+            </div>
+        </form>
+
+        <div class="titre_filtre">Filtrage avancé</div>
+        <ul id="liste_filtrage_avance">
+            <li><a href="#">Nouveautés</a></li>
+            <li><a href="#">Derniers exemplaires</a></li>
+        </ul>
+    </div>
+
+    <div id="section_resultat">
+        <div id="section_resultat_theme_choisi">
+            <p id="titre_theme_resultat">Photographies</p>
+            <p id="description_theme_resultat">Les experts en art de YellowKorner ont sélectionné pour vous les plus
+                belles photographies d'art en tirages limités et numérotés. Les photographies sont disponibles dans
+                le format de votre choix et le retrait en galerie est gratuit. Des œuvres au noir & blanc intemporel
+                aux photographies urbaines en passant par les clichés de grands photographes de mode, découvrez tout
+                l'univers artistique de YellowKorner.</p>
+        </div>
+        <div id="section_resultat_barre_tri_photo">
+            <form action="" name="choix_tri_resultat" id="choix_tri_resultat">
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_nouveautes" value="tri_nouveautes" checked>
+                    <label for="tri_nouveautes">Nouveautés</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_meilleures_ventes"
+                           value="tri_meilleures_ventes">
+                    <label for="tri_meilleures_ventes">Meilleures Ventes</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_prix_croissant" value="tri_prix_croissant">
+                    <label for="tri_prix_croissant">Prix croissant</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_prix_decroissant" value="tri_prix_decroissant">
+                    <label for="tri_prix_decroissant">Prix décroissant</label>
+                </div>
+            </form>
+            <div id=nb_results>
+                <p> <span>15</span> oeuvres trouvées</p>
+            </div>
+        </div>
+        <div id="section_resultat_affichage_resultats">
+
+            <article>
+                <figure>
+                    <img th:src="@{|images/1647.jpg|}" alt="">
+                    <figcaption>
+                        <h4>Titre de l'oeuvre</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, eaque animi! Ea natus
+                            iure eos cum dolorum, assumenda odit quia officiis tenetur dolor inventore quo a debitis
+                            sunt distinctio accusamus!</p>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <img th:src="@{|images/2371.jpg|}" alt="">
+                    <figcaption>
+                        <h4>Titre de l'oeuvre</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo velit placeat incidunt
+                            accusamus eveniet explicabo hic distinctio deserunt veniam! Dolorum iure aperiam culpa.
+                            Aperiam similique blanditiis qui quasi hic numquam!
+                            Omnis nihil suscipit sequi eos ut est perferendis. Dolorum itaque quibusdam voluptatum
+                            voluptate nisi dicta molestiae corporis placeat animi atque autem facere fugit ab, magni
+                            tempora incidunt obcaecati aperiam? Esse.
+                            Dolor sed rerum quod laboriosam architecto quidem odit, dignissimos magni reprehenderit
+                            id porro! Voluptate beatae doloribus, quae atque, voluptates ex odit ut nobis
+                            reprehenderit modi, delectus eaque sequi cumque inventore!
+                            Similique dolorum id quasi nostrum. Consequatur maxime, quo ducimus numquam iusto
+                            sapiente autem qui. Error omnis nemo enim laudantium architecto tenetur tempora, odio
+                            nostrum sapiente maxime eum praesentium ut id!</p>
+                    </figcaption>
+                </figure>
+            </article>
+        </div>
+        <div class="pagination" id="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </div>
+    <script th:src="@{|js/parcours_photos.js|}"></script>
+</section>

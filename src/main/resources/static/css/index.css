@@ -213,6 +213,7 @@ section#nouvelles_oeuvres article figure figcaption {
 
 section#nouvelles_oeuvres article figure figcaption div {
     font-size: 1.5em;
+    color: var(--txt-color-nouvelles-oeuvres);
 }
 
 section#nouvelles_oeuvres article figure figcaption div h3 {
@@ -488,6 +489,11 @@ section#container div#section_filtre ul li a:hover {
 section#container div#section_resultat {
     width: 80%;
     padding: 5px 0px 5px 0px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
 }
 
 section#container div#section_resultat_barre_tri_photo {
