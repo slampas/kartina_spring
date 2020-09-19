@@ -19,4 +19,11 @@ public class IndexController {
         model.addAttribute("fragment", "parcours_photo");
         return "index";
     }
+
+    //Page artiste
+    @GetMapping("/artist")
+    public String getArtiste(Model model) {
+        model.addAttribute("fragment", "artiste");
+        return "index";
+    }
 }
