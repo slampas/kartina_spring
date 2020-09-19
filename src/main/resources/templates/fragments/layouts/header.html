@@ -1,47 +1,42 @@
-<header xmlns:th="http://www.thymeleaf.org">
-    <div id="header_container">
-        <section id="haut">
-            <div>
-                <a th:href="@{/}">
-                    <img id="logo" th:src="@{ |images/icones/Logo_yellowkorner.png| }" alt="Logo YellowKorner"/>
-                </a>
-            </div>
-            <div>
-                <form action="">
-                    <input name="recherche_header" type="text" placeholder="Rechercher sur YellowKorner"/>
-                </form>
-            </div>
-            <div>
-                <a href="#"><i class="far fa-user"></i> Connexion</a>
-            </div>
-            <div>
-                <a href="#">Aide</a>
-            </div>
-            <div>
-                <div>
-                    <a href="#"><img th:src="@{ |images/icones/france.png| }" alt=""/> FR</a>
-                </div>
-            </div>
-            <div>
-                <a href="#"><i class="fas fa-shopping-basket"></i> Panier</a>
-            </div>
-        </section>
-
-        <section id="bas">
-            <ul>
-                <li>
-                    <a th:href="@{/explore}">Photographies </a>
-                </li>
-                <li>
-                    <a href="#">Nouveautés </a>
-                </li>
-                <li>
-                    <a href="./page_artiste.html">Artistes </a>
-                </li>
-                <li>
-                    <a href="#">Derniers exemplaires </a>
-                </li>
-            </ul>
-        </section>
+<section id="haut" xmlns:th="http://www.thymeleaf.org">
+    <div>
+        <a th:href="@{/}">
+            <img id="logo" th:src="@{ |images/icones/Logo_yellowkorner.png| }" alt="Logo YellowKorner"/>
+        </a>
     </div>
-</header>
+    <div>
+        <form action="">
+            <input name="recherche_header" type="text" placeholder="Rechercher sur YellowKorner"/>
+        </form>
+    </div>
+    <div>
+        <a href="#"><i class="far fa-user"></i> Connexion</a>
+    </div>
+    <div>
+        <a href="#">Aide</a>
+    </div>
+    <div>
+        <div>
+            <a href="#"><img th:src="@{ |images/icones/france.png| }" alt=""/> FR</a>
+        </div>
+    </div>
+    <div>
+        <a href="#"><i class="fas fa-shopping-basket"></i> Panier</a>
+    </div>
+</section>
+<section id="bas" xmlns:th="http://www.thymeleaf.org">
+    <ul>
+        <li>
+            <a th:href="@{/explore}">Photographies </a>
+        </li>
+        <li>
+            <a href="#">Nouveautés </a>
+        </li>
+        <li>
+            <a href="./page_artiste.html">Artistes </a>
+        </li>
+        <li>
+            <a href="#">Derniers exemplaires </a>
+        </li>
+    </ul>
+</section>
