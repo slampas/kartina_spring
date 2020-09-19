@@ -2,6 +2,10 @@ package com.formation.kartina_spring.models;
 
 import javax.persistence.*;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@NoArgsConstructor
 @Entity
 public class Image {
     @Id
