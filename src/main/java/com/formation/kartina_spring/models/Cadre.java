@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -38,4 +39,7 @@ public class Cadre {
             orphanRemoval = true
     )
     private List<JointureFinitionCadre> finitions = new ArrayList<>();
+
+        public void setFinitions(Collection<Finition> finitions2) {
+	}
 }
