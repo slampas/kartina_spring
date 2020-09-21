@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 @Data
@@ -47,4 +48,7 @@ public class Facture {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
+	public void setDate(GregorianCalendar gregorianCalendar) {
+	}
 }

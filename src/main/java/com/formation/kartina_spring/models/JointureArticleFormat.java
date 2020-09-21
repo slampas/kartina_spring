@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class JointureArticleFormat {
 
     @EmbeddedId
-    private JointureArticleFormatId id;
+    private JointureArticleFormatId id = new JointureArticleFormatId();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("articleId")
