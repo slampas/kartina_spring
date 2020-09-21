@@ -84,8 +84,8 @@ public class RemplissageBDD{
   
 
       
-      Commande commande1 = new Commande();
-      Facture facture1 = new Facture();
+      
+      
      
   
       Cadre cadre1 = new Cadre();
@@ -94,9 +94,8 @@ public class RemplissageBDD{
       Tag tag1 = new Tag();
       Theme theme1 = new Theme();
       Image image1 = new Image();
-  
       CodePromotionnel codePromotionnel1 = new CodePromotionnel();
-      DetailCommande detailCommande1 = new DetailCommande();
+     
       
 
       
@@ -120,8 +119,7 @@ public class RemplissageBDD{
       article1.setName("the name of this article");
       article1.setNom("the name  of this article");
       article1.setPrixBase((float) 100.00);
-  
-
+     
       articleService.save(article1);
 
       Artiste artiste1 = new Artiste();
@@ -132,12 +130,17 @@ public class RemplissageBDD{
       artiste1.setArticles(new ArrayList<Article>(Arrays.asList(article1))); // listes d'articles
 
       artisteService.save(artiste1);
-  
+      
+
+
+      
+      
+      
       Utilisateur utilisateur1 = new Utilisateur();
       utilisateur1.setAdresse(adresse1);
       utilisateur1.setArtiste(artiste1);
       utilisateur1.setCivilite("Monsieur");
-      // utilisateur1.setCommandes(commandes);//une listes de commandes
+      //utilisateur1.setCommandes(commandes);//une listes de commandes
       utilisateur1.setEmail("ceci est l'email");
       utilisateur1.setNom("Baziz");
       utilisateur1.setPassword("the password");
@@ -145,6 +148,7 @@ public class RemplissageBDD{
       utilisateur1.setPrenom("moussa");
       utilisateur1.setSalt("salt");
       utilisateur1.setTelephone("060654812");
+      //utilisateur1.setRole(userType1);
 
       utilisateurService.save(utilisateur1);
  /** **** création d'une liste d'utilisateurs *
@@ -159,11 +163,18 @@ public class RemplissageBDD{
       users.add(utilisateur4);
       users.add(utilisateur5);
 
-*/
-UserType userType1 = new UserType();
-         
+*/    UserType userType1 = new UserType();
+      userType1.setUserEnum(RoleUtilisateur.UTILISATEUR);
       userType1.setUserEnum(RoleUtilisateur.ADMIN);
       userType1.setUser(new ArrayList<Utilisateur>(Arrays.asList(utilisateur1)));
+
+      userTypeService.save(userType1);
+
+
+
+   
+         
+
   
 
       // article1.setArtistes((java.util.List<Artiste>) artistes); //liste d'artistes
@@ -185,7 +196,12 @@ UserType userType1 = new UserType();
       // articles.add(article3);
       // articles.add(article4);
       // articles.add(article5);
-  
+      
+      DetailCommande detailCommande1 = new DetailCommande();
+      detailCommande1.setArticle(article1);
+      detailCommande1.setCadre("cadre");
+      detailCommande1.setQuantiteArticle(8);
+      detailCommande1.setArticle(article1);
       ArrayList<DetailCommande> detailCommandes = new ArrayList<DetailCommande>();
       DetailCommande detailCommande2 = new DetailCommande();
       DetailCommande detailCommande3 = new DetailCommande();
@@ -196,6 +212,8 @@ UserType userType1 = new UserType();
       detailCommandes.add(detailCommande3);
       detailCommandes.add(detailCommande4);
       detailCommandes.add(detailCommande5);
+
+      detailCommandeService.save(detailCommande1);
   
 
       /* creation de plusieurs artistes */
@@ -208,7 +226,9 @@ UserType userType1 = new UserType();
       // artistes.add(artiste3);
       // artistes.add(artiste4);
       // artistes.add(artiste5);
-  
+      
+      
+      Commande commande1 = new Commande();
       commande1.setTVA(20);
       commande1.setDate(new GregorianCalendar(2020, 7, 20));
       commande1.setDate(new GregorianCalendar(2020, 7, 26));
@@ -217,7 +237,7 @@ UserType userType1 = new UserType();
       commande1.setCodePromotionnel(codePromotionnel1);
       commande1.setUser(utilisateur1);
       commande1.setArticles(detailCommandes);// liste d'articles
-      /* liste de commandes */
+      commande1.setArticles(new ArrayList<DetailCommande>(Arrays.asList(detailCommande1)));
       Commande commande2 = new Commande();
       Commande commande3 = new Commande();
       Commande commande4 = new Commande();
@@ -228,7 +248,11 @@ UserType userType1 = new UserType();
       commandes.add(commande3);
       commandes.add(commande4);
       commandes.add(commande5);
-  
+
+      commandeService.save(commande1);
+
+
+      Facture facture1 = new Facture();
       facture1.setTVA(20);
       facture1.setDateLivraison(new GregorianCalendar(2020, 7, 20));
       facture1.setDate(new GregorianCalendar(2020, 7, 10));
@@ -238,6 +262,8 @@ UserType userType1 = new UserType();
       facture1.setUserEmail("userEmail");
       facture1.setUserForname("userForname");
       facture1.setUserName("userName");
+
+      factureService.save(facture1);
   
       /* Liste de format jointures */
       JointureFormatFinitionId jointureFormatFinitionId = new JointureFormatFinitionId();
@@ -293,7 +319,9 @@ UserType userType1 = new UserType();
       cadres.add(cadre2);
       cadres.add(cadre3);
       cadres.add(cadre4);
-      cadres.add(cadre5);
+      cadres.add(cadre5);  
+
+      cadreService.save(cadre1);
   
       // JointureArticleFormatId JointureArticleFormatId = new
       // JointureArticleForutilisateurService.save(utilisateur1);matId();
@@ -319,7 +347,7 @@ UserType userType1 = new UserType();
       format1.setFormatEnum(FormatEnum.CLASSIQUE);
   
       tag1.setNom("un nom de ce tag ");
-    tag1.setArticles(new ArrayList<Article>(Arrays.asList(article1)));// listes d'articles
+      tag1.setArticles(new ArrayList<Article>(Arrays.asList(article1)));// listes d'articles
   
       theme1.setNom("ceci est un theme ");
       theme1.setArticles(new ArrayList<Article>(Arrays.asList(article1)));// une liste d'articles
@@ -341,17 +369,17 @@ UserType userType1 = new UserType();
   
       
       /* Les services */
-      userTypeService.save(userType1);
+     
       
       //adresseService.save(adresse1);
       // utilisateurService.save(utilisateur1);
       // articleService.save(article1);
       
       //artisteService.save(artiste1);
-      commandeService.save(commande1);
-      factureService.save(facture1);
+    
       
-      cadreService.save(cadre1);
+      
+      
       finitionService.save(finition1);
       formatService.save(format1);
       tagService.save(tag1);
@@ -359,7 +387,7 @@ UserType userType1 = new UserType();
       orientationService.save(orientation1);
       imageService.save(image1);
       codePromotionnelService.save(codePromotionnel1);
-      detailCommandeService.save(detailCommande1);
+      
 
       jointureArticleFormatService.save(jointureArticleFormat1);
       jointureFinitionCadreService.save(jointureFinitionCadre1);
