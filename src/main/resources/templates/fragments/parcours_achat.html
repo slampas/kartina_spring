@@ -1,0 +1,9 @@
+<section id="parcours_achat" xmlns:th="http://www.thymeleaf.org">
+    <section id="partie_gauche">
+        <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: partieGauche }"></th:block>
+    </section>
+    <section id="partie_droite">
+        <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: partieDroite }"></th:block>
+    </section>
+</section>
+<script th:src="@{|js/parcours_achat.js|}"></script>

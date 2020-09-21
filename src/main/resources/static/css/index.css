@@ -493,7 +493,6 @@ section#container div#section_resultat {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
 }
 
 section#container div#section_resultat_barre_tri_photo {
@@ -676,6 +675,11 @@ section#parcours_achat section#partie_gauche {
     min-width: 550px;
 }
 
+section#parcours_achat section#partie_droite {
+    width: 50%;
+    min-width: 550px;
+}
+
 /*Partie gauche*/
 
 section#parcours_achat section#partie_gauche section#bloc_previsu article {
@@ -709,7 +713,25 @@ section#parcours_achat section#partie_gauche section#bloc_description h3, sectio
     margin: 5px 0px;
 }
 
+section#parcours_achat section#partie_gauche section#bloc_description h3 a {
+    color: black;
+    text-decoration: none;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_description h3 a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 /*Partie droite*/
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation {
+    margin: 0px 5px 5px 5px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation table {
+    border-collapse: collapse;
+}
 
 section#parcours_achat section#partie_droite section#bloc_personnalisation table thead tr td p {
     margin: 0px 0px 5px 0px;
@@ -721,6 +743,15 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation table
 
 section#parcours_achat section#partie_droite section#bloc_personnalisation form table {
     margin-bottom: 10px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td a {
+    color: black;
+    text-decoration: none;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td a:hover div p:last-child {
+    color: rgba(0, 0, 0, 0.75);
 }
 
 section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div {
@@ -762,49 +793,30 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation form 
     background-color: rgb(216, 216, 216);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
-    cursor: pointer;
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid rgba(233, 230, 230, 0.50);
 }
 
-/*Pour aligner label et checkbox*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-/*Pour aligner dans le label*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/*Pour mettre les deux paragraphes en colonnes*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p {
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td figure {
     margin: 5px;
-    max-width: 500px;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p span {
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td figure img {
+    max-width: 130px;
+    max-height: 130px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td label div p {
+    margin: 0px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td label div p:first-child {
     font-weight: bold;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label figure {
-    margin: 0px 10px 0px 5px;
-}
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div input.largeCheckbox {
+section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td input.largeCheckbox {
     width: 20px;
     height: 20px;
 }

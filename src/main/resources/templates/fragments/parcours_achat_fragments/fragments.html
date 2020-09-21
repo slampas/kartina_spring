@@ -1,0 +1,343 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="partieGauche">
+    <section id="bloc_previsu">
+        <article>
+            <figure>
+                <img th:src="@{|images/1647.jpg|}" alt="">
+            </figure>
+        </article>
+        <ul>
+            <li><a href="#"><img th:src="@{|images/1647.jpg|}" alt=""></a></li>
+            <li><a href="#"><img th:src="@{|images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
+        </ul>
+    </section>
+    <section id="bloc_description">
+        <h3><a href="artist?name=nomArtiste">Nom Artiste</a></h3>
+        <h4>Titre de l'oeuvre</h4>
+        <p>
+            Description : Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, cupiditate ut
+            omnis illum architecto eos veniam amet mollitia quam ipsa tempore ab libero quos! Molestias dolorum
+            sint
+            animi harum optio.Natus impedit ut aliquid molestiae eum consequuntur quas repellendus sequi, iusto
+            iste optio quia? Quae, dolores quod minima eius commodi, corporis reprehenderit et unde, illo est
+            eaque? Est, officia repellendus!
+        </p>
+    </section>
+</th:block>
+
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="partieDroite">
+    <section id="bloc_personnalisation">
+        <form action="" method="" name="form_choix">
+            <table id="tab" aria-describedby="Formulaire de choix de personnalisation">
+                <thead>
+                <tr>
+                    <td colspan="3">
+                        <p class="aligne_centre">Créez votre photographie d'art sur mesure</p>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="etape" class="aligne_centre">
+                    <td class="etape_selectionnee">
+                        <a style="display:block" href="#">
+                            <div>
+                                <p class="actif">1</p>
+                                <p>Format</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a style="display:block" href="#">
+                            <div>
+                                <p class="inactif">2</p>
+                                <p>Finition</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a style="display:block" href="#">
+                            <div>
+                                <p class="inactif">3</p>
+                                <p>Cadre</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+
+                <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: trFormat }"></th:block>
+
+
+                <tr id="navigation">
+                    <td></td>
+                    <td class="hide-cells"></td>
+                    <td>
+                        <div><a href="/parcours_achat_frag_finition.html">Etape suivante <i
+                                class="fas fa-angle-right"></i></a></div>
+                    </td>
+                </tr>
+                <tr class="aligne_centre">
+                    <td class="hide-cells"></td>
+                    <td>
+                        <p class="total">TOTAL</p>
+                    </td>
+                    <td>
+                        <p class="total">254.50 €</p>
+                    </td>
+                </tr>
+                <tr class="aligne_centre">
+                    <td colspan="3">
+                        <button type="submit" autocomplete="off" disabled>Choisir ce format <i
+                                class="fas fa-angle-right fa-3x" style="vertical-align: middle;"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </form>
+    </section>
+</th:block>
+
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="trFormat">
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/icone_format_grand.png|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix1">
+                <div>
+                    <p>GRAND - 60 x 72cm à partir de 110,00 €</p>
+                    <p>Photographie montée sur aluminium, édition limitée 500 exemplaire</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="format" id="choix1" value="grand" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/icone_format_geant.png|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix2">
+                <div>
+                    <p>GEANT - 100 x 125cm à partir de 230,00 €</p>
+                    <p>Photographie montée sur aluminium, édition limitée 500 exemplaire</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="format" id="choix2" value="geant" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/icone_format_collector.png|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix3">
+                <div>
+                    <p>COLLECTOR - 120 x 150cm à partir de 670,00 €</p>
+                    <p>Photographie montée sur aluminium, édition limitée 100 exemplaire</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="format" id="choix3" value="collector"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/icone_format_classic.png|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix4">
+                <div>
+                    <p>CLASSIQUE - 24 x 30cm à partir de 60.40 €</p>
+                    <p>Photographie montée sur aluminium, édition limitée 100 exemplaire</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="format" id="choix4" value="classique"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+</th:block>
+
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="trFinition">
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/alu.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix1">
+                <div>
+                    <p>Support aluminium</p>
+                    <p>Tirage contrecollé sur support aluminium</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="finition" id="choix1" value="alu" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/alu_acry.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix2">
+                <div>
+                    <p>Support aluminium avec verre acrylique</p>
+                    <p>Tirage contrecollé sur support aluminium avec finition protectrice
+                        en verre acrylique accentuant les constrats et les
+                        couleurs
+                    </p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="finition" id="choix2" value="alu_acry"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/papier_photo.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix3">
+                <div>
+                    <p>Tirage sur papier photo</p>
+                    <p>Tirage sur papier photo expéridé roulé, à accrocher ou à encadrer</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="finition" id="choix3" value="papier_photo"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+</th:block>
+
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="trCadre">
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/sans_cadre.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix1">
+                <div>
+                    <p>Sans encadrement</p>
+                    <p>Tirage contrecollé sur support aluminium</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="cadre" id="choix1" value="none" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/cadre_noir_satin.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix2">
+                <div>
+                    <p>Encadrement noir satin</p>
+                    <p>Caisse américaine noire satinée assemblée à la main, apportant une
+                        effet de luminosité et de profondeur</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="format" id="choix2" value="noir_satin"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/cadre_blanc_satin.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix3">
+                <div>
+                    <p>Encadrement blanc satin</p>
+                    <p>Caisse américaine blanche satinée assemblée à la main, apportant une
+                        effet de luminosité et de profondeur</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="cadre" id="choix3" value="blanc_satin"
+                   class="largeCheckbox" onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/cadre_noyer.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix4">
+                <div>
+                    <p>Encadrement noyer</p>
+                    <p>Caisse américaine en noyer massif assemblée à la main, apportant une
+                        effet de luminosité et de profondeur</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="cadre" id="choix4" value="noyer" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+    <tr class="choix">
+        <td>
+            <figure>
+                <img th:src="@{|images/parcours_achat/cadre_chene.jpg|}" alt="">
+            </figure>
+        </td>
+        <td>
+            <label for="choix5">
+                <div>
+                    <p>Encadrement chêne</p>
+                    <p>Caisse américaine en chêne massif assemblée à la main, apportant une
+                        effet de luminosité et de profondeur</p>
+                </div>
+            </label>
+        </td>
+        <td>
+            <input type="checkbox" name="cadre" id="choix5" value="chene" class="largeCheckbox"
+                   onclick="checkbox(this)">
+        </td>
+    </tr>
+</th:block>

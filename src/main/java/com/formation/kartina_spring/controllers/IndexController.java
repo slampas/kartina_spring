@@ -26,4 +26,11 @@ public class IndexController {
         model.addAttribute("fragment", "artiste");
         return "index";
     }
+
+    //Page parcours achat
+    @GetMapping("/oeuvre")
+    public String getOeuvre(Model model) {
+        model.addAttribute("fragment", "parcours_achat");
+        return "index";
+    }
 }
