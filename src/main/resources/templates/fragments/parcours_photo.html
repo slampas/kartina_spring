@@ -1,0 +1,44 @@
+<section id="container" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:insert="~{ fragments/parcours_photo_fragments/fragments :: filtre }"></th:block>
+    <div id="section_resultat">
+        <div id="section_resultat_theme_choisi">
+            <p id="titre_theme_resultat">Photographies</p>
+            <p id="description_theme_resultat">Les experts en art de YellowKorner ont sélectionné pour vous les plus
+                belles photographies d'art en tirages limités et numérotés. Les photographies sont disponibles dans
+                le format de votre choix et le retrait en galerie est gratuit. Des œuvres au noir & blanc intemporel
+                aux photographies urbaines en passant par les clichés de grands photographes de mode, découvrez tout
+                l'univers artistique de YellowKorner.</p>
+        </div>
+        <div id="section_resultat_barre_tri_photo">
+            <form action="" name="choix_tri_resultat" id="choix_tri_resultat">
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_nouveautes" value="tri_nouveautes" checked>
+                    <label for="tri_nouveautes">Nouveautés</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_meilleures_ventes"
+                           value="tri_meilleures_ventes">
+                    <label for="tri_meilleures_ventes">Meilleures Ventes</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_prix_croissant" value="tri_prix_croissant">
+                    <label for="tri_prix_croissant">Prix croissant</label>
+                </div>
+                <div>
+                    <input type="radio" name="tri_resultat" id="tri_prix_decroissant" value="tri_prix_decroissant">
+                    <label for="tri_prix_decroissant">Prix décroissant</label>
+                </div>
+            </form>
+            <div id=nb_results>
+                <p><span>15</span> oeuvres trouvées</p>
+            </div>
+        </div>
+
+        <div id="section_resultat_affichage_resultats">
+            <!--/* :: result cible le th:fragment="result" de la page fragments.html */-->
+            <th:block th:insert="~{ fragments/parcours_photo_fragments/fragments :: result }"></th:block>
+        </div>
+        <th:block th:insert="~{ fragments/parcours_photo_fragments/fragments :: pagination }"></th:block>
+    </div>
+    <script th:src="@{|js/parcours_photos.js|}"></script>
+</section>

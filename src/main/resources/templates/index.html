@@ -7,18 +7,26 @@
     <link rel="stylesheet" th:href="@{ css/index.css }">
     <title>Index</title>
 </head>
-
 <body>
-
-<th:block th:insert="~{ fragments/layouts/header }"></th:block>
+<header>
+    <div id="header_container">
+    <th:block th:insert="~{ fragments/layouts/header }"></th:block>
+    <!--/*Si la page n'est l'index, alors on insert le fil d'ariane*/-->
+    <th:block th:if="${fragment != 'index'}">
+        <th:block th:insert="~{ fragments/layouts/fil_ariane } "></th:block>
+    </th:block>
+    </div>
+</header>
 
 <th:block th:if="${ fragment }">
     <th:block th:insert="~{ |fragments/${fragment}| }"></th:block>
 </th:block>
 
-<th:block th:insert="~{ fragments/layouts/footer }"></th:block>
+<footer>
+    <th:block th:insert="~{ fragments/layouts/footer }"></th:block>
+</footer>
 
 <script th:src="@{https://kit.fontawesome.com/c849814321.js}" crossorigin="anonymous"></script>
-</body>
 
+</body>
 </html>
