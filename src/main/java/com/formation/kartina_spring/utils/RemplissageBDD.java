@@ -133,7 +133,12 @@ public class RemplissageBDD{
       
 
 
-      
+      UserType userType1 = new UserType();
+      userType1.setUserEnum(RoleUtilisateur.UTILISATEUR);
+      userType1.setUserEnum(RoleUtilisateur.ADMIN);
+      //userType1.setUser(new ArrayList<Utilisateur>(Arrays.asList(utilisateur1)));
+
+      userTypeService.save(userType1);
       
       
       Utilisateur utilisateur1 = new Utilisateur();
@@ -148,7 +153,7 @@ public class RemplissageBDD{
       utilisateur1.setPrenom("moussa");
       utilisateur1.setSalt("salt");
       utilisateur1.setTelephone("060654812");
-      //utilisateur1.setRole(userType1);
+      utilisateur1.setRole(userType1);
 
       utilisateurService.save(utilisateur1);
  /** **** création d'une liste d'utilisateurs *
@@ -163,12 +168,7 @@ public class RemplissageBDD{
       users.add(utilisateur4);
       users.add(utilisateur5);
 
-*/    UserType userType1 = new UserType();
-      userType1.setUserEnum(RoleUtilisateur.UTILISATEUR);
-      userType1.setUserEnum(RoleUtilisateur.ADMIN);
-      userType1.setUser(new ArrayList<Utilisateur>(Arrays.asList(utilisateur1)));
-
-      userTypeService.save(userType1);
+*/    
 
 
 
@@ -196,24 +196,39 @@ public class RemplissageBDD{
       // articles.add(article3);
       // articles.add(article4);
       // articles.add(article5);
+
+      codePromotionnel1.setDescription("ceci est la description de l'article");
+      codePromotionnel1.setDateLimite(new GregorianCalendar(2020, 7, 10));
+      
+      codePromotionnelService.save(codePromotionnel1);
+
+      Commande commande1 = new Commande();
+      commande1.setTVA(20);
+      commande1.setDate(new GregorianCalendar(2020, 7, 20));
+      commande1.setDateLivraison(new GregorianCalendar(2020, 7, 26));
+      commande1.setDatePaiement(new GregorianCalendar(2020, 7, 29));
+      commande1.setPrixTotalHt(150);
+      commande1.setCodePromotionnel(codePromotionnel1);
+      commande1.setUser(utilisateur1);
+
+      commandeService.save(commande1);
       
       DetailCommande detailCommande1 = new DetailCommande();
-      detailCommande1.setArticle(article1);
-      detailCommande1.setCadre("cadre");
       detailCommande1.setQuantiteArticle(8);
       detailCommande1.setArticle(article1);
-      ArrayList<DetailCommande> detailCommandes = new ArrayList<DetailCommande>();
-      DetailCommande detailCommande2 = new DetailCommande();
-      DetailCommande detailCommande3 = new DetailCommande();
-      DetailCommande detailCommande4 = new DetailCommande();
-      DetailCommande detailCommande5 = new DetailCommande();
-      detailCommandes.add(detailCommande1);
-      detailCommandes.add(detailCommande2);
-      detailCommandes.add(detailCommande3);
-      detailCommandes.add(detailCommande4);
-      detailCommandes.add(detailCommande5);
+      detailCommande1.setCommande(commande1);
+      // ArrayList<DetailCommande> detailCommandes = new ArrayList<DetailCommande>();
+      // DetailCommande detailCommande2 = new DetailCommande();
+      // DetailCommande detailCommande3 = new DetailCommande();
+      // DetailCommande detailCommande4 = new DetailCommande();
+      // DetailCommande detailCommande5 = new DetailCommande();
+      // detailCommandes.add(detailCommande1);
+      // detailCommandes.add(detailCommande2);
+      // detailCommandes.add(detailCommande3);
+      // detailCommandes.add(detailCommande4);
+      // detailCommandes.add(detailCommande5);
 
-      detailCommandeService.save(detailCommande1);
+
   
 
       /* creation de plusieurs artistes */
@@ -227,123 +242,79 @@ public class RemplissageBDD{
       // artistes.add(artiste4);
       // artistes.add(artiste5);
       
-      
-      Commande commande1 = new Commande();
-      commande1.setTVA(20);
-      commande1.setDate(new GregorianCalendar(2020, 7, 20));
-      commande1.setDate(new GregorianCalendar(2020, 7, 26));
-      commande1.setDate(new GregorianCalendar(2020, 7, 29));
-      commande1.setPrixTotalHt(150);
-      commande1.setCodePromotionnel(codePromotionnel1);
-      commande1.setUser(utilisateur1);
-      commande1.setArticles(detailCommandes);// liste d'articles
-      commande1.setArticles(new ArrayList<DetailCommande>(Arrays.asList(detailCommande1)));
-      Commande commande2 = new Commande();
-      Commande commande3 = new Commande();
-      Commande commande4 = new Commande();
-      Commande commande5 = new Commande();
-      Collection<Commande> commandes = new ArrayList<Commande>();
-      commandes.add(commande1);
-      commandes.add(commande2);
-      commandes.add(commande3);
-      commandes.add(commande4);
-      commandes.add(commande5);
-
-      commandeService.save(commande1);
+    
 
 
       Facture facture1 = new Facture();
       facture1.setTVA(20);
       facture1.setDateLivraison(new GregorianCalendar(2020, 7, 20));
+      facture1.setDatePaiement(new GregorianCalendar(2020, 7, 20));
       facture1.setDate(new GregorianCalendar(2020, 7, 10));
       facture1.setDescription("cesi est une description de la facture ");
       facture1.setPaiementId("paiementId"); // le id du paiment
       facture1.setPrixHt(100);
-      facture1.setUserEmail("userEmail");
+      facture1.setUserEmail("userEmail@gmail.com");
       facture1.setUserForname("userForname");
       facture1.setUserName("userName");
 
       factureService.save(facture1);
   
-      /* Liste de format jointures */
-      JointureFormatFinitionId jointureFormatFinitionId = new JointureFormatFinitionId();
-      JointureFormatFinition jointureFormatFinition1 = new JointureFormatFinition();
-      JointureFormatFinition jointureFormatFinition2 = new JointureFormatFinition();
-      JointureFormatFinition jointureFormatFinition3 = new JointureFormatFinition();
-      JointureFormatFinition jointureFormatFinition4 = new JointureFormatFinition();
-      JointureFormatFinition jointureFormatFinition5 = new JointureFormatFinition();
-      ArrayList<JointureFormatFinition> formatsJointures = new ArrayList<JointureFormatFinition>();
-      formatsJointures.add(jointureFormatFinition1);
-      formatsJointures.add(jointureFormatFinition2);
-      formatsJointures.add(jointureFormatFinition3);
-      formatsJointures.add(jointureFormatFinition4);
-      formatsJointures.add(jointureFormatFinition5);
-      JointureFinitionCadreId jointureFinitionCadreid = new JointureFinitionCadreId();
-      /* Liste de jointure finitions cadre */
-      JointureFinitionCadre jointureFinitionCadre1 = new JointureFinitionCadre();
-      JointureFinitionCadre jointureFinitionCadre2 = new JointureFinitionCadre();
-      JointureFinitionCadre jointureFinitionCadre3 = new JointureFinitionCadre();
-      JointureFinitionCadre jointureFinitionCadre4 = new JointureFinitionCadre();
-      JointureFinitionCadre jointureFinitionCadre5 = new JointureFinitionCadre();
-      ArrayList<JointureFinitionCadre> finitionsJointures = new ArrayList<JointureFinitionCadre>();
-      finitionsJointures.add(jointureFinitionCadre1);
-      finitionsJointures.add(jointureFinitionCadre2);
-      finitionsJointures.add(jointureFinitionCadre3);
-      finitionsJointures.add(jointureFinitionCadre4);
-      finitionsJointures.add(jointureFinitionCadre5);
+      // /* Liste de format jointures */
+      // JointureFormatFinitionId jointureFormatFinitionId = new JointureFormatFinitionId();
+      // JointureFormatFinition jointureFormatFinition1 = new JointureFormatFinition();
+      // JointureFormatFinition jointureFormatFinition2 = new JointureFormatFinition();
+      // JointureFormatFinition jointureFormatFinition3 = new JointureFormatFinition();
+      // JointureFormatFinition jointureFormatFinition4 = new JointureFormatFinition();
+      // JointureFormatFinition jointureFormatFinition5 = new JointureFormatFinition();
+      // ArrayList<JointureFormatFinition> formatsJointures = new ArrayList<JointureFormatFinition>();
+      // formatsJointures.add(jointureFormatFinition1);
+      // formatsJointures.add(jointureFormatFinition2);
+      // formatsJointures.add(jointureFormatFinition3);
+      // formatsJointures.add(jointureFormatFinition4);
+      // formatsJointures.add(jointureFormatFinition5);
+      // JointureFinitionCadreId jointureFinitionCadreid = new JointureFinitionCadreId();
+      // /* Liste de jointure finitions cadre */
+      // JointureFinitionCadre jointureFinitionCadre1 = new JointureFinitionCadre();
+      // JointureFinitionCadre jointureFinitionCadre2 = new JointureFinitionCadre();
+      // JointureFinitionCadre jointureFinitionCadre3 = new JointureFinitionCadre();
+      // JointureFinitionCadre jointureFinitionCadre4 = new JointureFinitionCadre();
+      // JointureFinitionCadre jointureFinitionCadre5 = new JointureFinitionCadre();
+      // ArrayList<JointureFinitionCadre> finitionsJointures = new ArrayList<JointureFinitionCadre>();
+      // finitionsJointures.add(jointureFinitionCadre1);
+      // finitionsJointures.add(jointureFinitionCadre2);
+      // finitionsJointures.add(jointureFinitionCadre3);
+      // finitionsJointures.add(jointureFinitionCadre4);
+      // finitionsJointures.add(jointureFinitionCadre5);
   
       finition1.setFinitionEnum(FinitionEnum.BLACKOUT);
-      finition1.setCadres(finitionsJointures);
-      finition1.setFormats(formatsJointures);
-      /** Liste de finition */
-      Finition finition2 = new Finition();
-      Finition finition3 = new Finition();
-      Finition finition4 = new Finition();
-      Finition finition5 = new Finition();
-      ArrayList<Finition> finitions = new ArrayList<Finition>();
-      finitions.add(finition1);
-      finitions.add(finition2);
-      finitions.add(finition3);
-      finitions.add(finition4);
-      finitions.add(finition5);
+
+
   
       cadre1.setCadreEnum(CadreEnum.ALUMINIUM_BROSSE);
-      cadre1.setFinitions(finitions);
-      /* création d'une liste de cadre */
-      Cadre cadre2 = new Cadre();
-      Cadre cadre3 = new Cadre();
-      Cadre cadre4 = new Cadre();
-      Cadre cadre5 = new Cadre();
-      ArrayList<Cadre> cadres = new ArrayList<Cadre>();
-      cadres.add(cadre1);
-      cadres.add(cadre2);
-      cadres.add(cadre3);
-      cadres.add(cadre4);
-      cadres.add(cadre5);  
+ 
 
       cadreService.save(cadre1);
   
       // JointureArticleFormatId JointureArticleFormatId = new
       // JointureArticleForutilisateurService.save(utilisateur1);matId();
       /* List de jointure Article format */
-      JointureArticleFormat jointureArticleFormat1 = new JointureArticleFormat();
-      JointureArticleFormat jointureArticleFormat2 = new JointureArticleFormat();
-      JointureArticleFormat jointureArticleFormat3 = new JointureArticleFormat();
-      JointureArticleFormat jointureArticleFormat4 = new JointureArticleFormat();
-      JointureArticleFormat jointureArticleFormat5 = new JointureArticleFormat();
-      ArrayList<JointureArticleFormat> articlesJointures = new ArrayList<JointureArticleFormat>();
-      articlesJointures.add(jointureArticleFormat1);
-      articlesJointures.add(jointureArticleFormat2);
-      articlesJointures.add(jointureArticleFormat3);
-      articlesJointures.add(jointureArticleFormat4);
-      articlesJointures.add(jointureArticleFormat5);
+      // JointureArticleFormat jointureArticleFormat1 = new JointureArticleFormat();
+      // JointureArticleFormat jointureArticleFormat2 = new JointureArticleFormat();
+      // JointureArticleFormat jointureArticleFormat3 = new JointureArticleFormat();
+      // JointureArticleFormat jointureArticleFormat4 = new JointureArticleFormat();
+      // JointureArticleFormat jointureArticleFormat5 = new JointureArticleFormat();
+      // ArrayList<JointureArticleFormat> articlesJointures = new ArrayList<JointureArticleFormat>();
+      // articlesJointures.add(jointureArticleFormat1);
+      // articlesJointures.add(jointureArticleFormat2);
+      // articlesJointures.add(jointureArticleFormat3);
+      // articlesJointures.add(jointureArticleFormat4);
+      // articlesJointures.add(jointureArticleFormat5);
   
       /******
        * a voir avec marc antoine la classe cadre pourquoi l'utilisation de la
        * jointure et du read
        *******/
-      format1.setArticles(articlesJointures); // liste jointure cast impossible
-      format1.setFinitions(formatsJointures); // liste de jointure aussi
+
       format1.setFormatEnum(FormatEnum.CLASSIQUE);
   
       tag1.setNom("un nom de ce tag ");
@@ -362,11 +333,9 @@ public class RemplissageBDD{
       image1.setLargeur((long) 800.00);
       image1.setHauteur((long) 400);
       image1.setArticle(article1); // le nom de l'article
-  
-      codePromotionnel1.setDescription("ceci est la description de l'article");
-      codePromotionnel1.setDateLimite(new GregorianCalendar(2020, 7, 10));
-      codePromotionnel1.setCommande((java.util.List<Commande>) commandes); // une liste de commandes
-  
+      
+
+      
       
       /* Les services */
      
@@ -386,12 +355,16 @@ public class RemplissageBDD{
       themeService.save(theme1);
       orientationService.save(orientation1);
       imageService.save(image1);
-      codePromotionnelService.save(codePromotionnel1);
+
+      detailCommande1.setFinition(finition1);
+      detailCommande1.setCadre(cadre1);
+      detailCommande1.setFormat(format1);
+      detailCommandeService.save(detailCommande1);
       
 
-      jointureArticleFormatService.save(jointureArticleFormat1);
-      jointureFinitionCadreService.save(jointureFinitionCadre1);
-      jointureFormatFinitionService.save(jointureFormatFinition1); 
+      // jointureArticleFormatService.save(jointureArticleFormat1);
+      // jointureFinitionCadreService.save(jointureFinitionCadre1);
+      // jointureFormatFinitionService.save(jointureFormatFinition1); 
 
     }
 

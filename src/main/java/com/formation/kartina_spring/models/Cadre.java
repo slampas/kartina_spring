@@ -18,17 +18,12 @@ import org.hibernate.annotations.Cache;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@NaturalIdCache
-@Cache(
-        usage = CacheConcurrencyStrategy.READ_WRITE
-)
 @Entity
 public class Cadre {
     @Id
     @GeneratedValue
     private Long cadreId;
 
-    @NaturalId
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private CadreEnum cadreEnum;
@@ -40,6 +35,4 @@ public class Cadre {
     )
     private List<JointureFinitionCadre> finitions = new ArrayList<>();
 
-        public void setFinitions(Collection<Finition> finitions2) {
-	}
 }
