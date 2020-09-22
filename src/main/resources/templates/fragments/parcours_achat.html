@@ -1,9 +1,38 @@
 <section id="parcours_achat" xmlns:th="http://www.thymeleaf.org">
     <section id="partie_gauche">
-        <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: partieGauche }"></th:block>
+        <section id="bloc_previsu">
+            <article>
+                <figure>
+                    <img th:src="@{|images/1647.jpg|}" alt="">
+                </figure>
+            </article>
+            <ul>
+                <li><a href="#"><img th:src="@{|images/1647.jpg|}" alt=""></a></li>
+                <li><a href="#"><img th:src="@{|images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
+            </ul>
+        </section>
+        <section id="bloc_description">
+            <h3><a href="/artist?name=nomArtiste">Nom Artiste</a></h3>
+            <h4>Titre de l'oeuvre</h4>
+            <p>
+                Description : Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, cupiditate ut
+                omnis illum architecto eos veniam amet mollitia quam ipsa tempore ab libero quos! Molestias dolorum
+                sint
+                animi harum optio.Natus impedit ut aliquid molestiae eum consequuntur quas repellendus sequi, iusto
+                iste optio quia? Quae, dolores quod minima eius commodi, corporis reprehenderit et unde, illo est
+                eaque? Est, officia repellendus!
+            </p>
+        </section>
     </section>
-    <section id="partie_droite">
-        <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: partieDroite }"></th:block>
+    <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
+        <section id="bloc_personnalisation">
+            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: format }"></th:block>
+            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: finition }"></th:block>
+            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: cadre }"></th:block>
+<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: ${fragmentForm}"></th:block>-->
+        </section>
     </section>
 </section>
-<script th:src="@{|js/parcours_achat.js|}"></script>
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <script th:src="@{|js/parcours_achat.js|}"></script>
+</th:block>
