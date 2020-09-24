@@ -3,12 +3,12 @@
         <section id="bloc_previsu">
             <article>
                 <figure>
-                    <img th:src="@{|images/1647.jpg|}" alt="">
+                    <img th:src="@{|/images/1647.jpg|}" alt="">
                 </figure>
             </article>
             <ul>
-                <li><a href="#"><img th:src="@{|images/1647.jpg|}" alt=""></a></li>
-                <li><a href="#"><img th:src="@{|images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
+                <li><a href="#"><img th:src="@{|/images/1647.jpg|}" alt=""></a></li>
+                <li><a href="#"><img th:src="@{|/images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
             </ul>
         </section>
         <section id="bloc_description">
@@ -26,16 +26,15 @@
     </section>
     <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
         <section id="bloc_personnalisation">
-<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: finition }"></th:block>-->
-<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: cadre }"></th:block>-->
-<!--<th:block th:insert="~{fragments/parcours_achat_fragments/fragments :: format}"></th:block>-->
-             <th:block th:insert="~{fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
+            <!-- fragments/parcours_achat_fragments/fragments :: format-->
 
-            <!--            <th:block th:insert="~{ |fragments/parcours_achat_fragments/fragments :: ${fragmentForm}| }"></th:block>-->
-            <!--            <th:block th:insert="~{ |fragments/parcours_achat_fragments/fragments :: ${fragmentForm}|}"></th:block>-->
+            <!--   Même si souligné, le th:if fonctionne...-->
+            <th:block th:if="${ fragmentForm }">
+                <th:block th:insert="~{/fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
+            </th:block>
         </section>
     </section>
 </section>
 <th:block xmlns:th="http://www.thymeleaf.org">
-    <script th:src="@{|js/parcours_achat.js|}"></script>
+    <script th:src="@{|/js/parcours_achat.js|}"></script>
 </th:block>

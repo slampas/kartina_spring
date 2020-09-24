@@ -1,14 +1,30 @@
 package com.formation.kartina_spring.controllers;
 
+import com.formation.kartina_spring.models.ChoixPersonnalisation;
+import com.formation.kartina_spring.services.FormatService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class IndexController {
+
+    private FormatService formatService;
+
+    //Objet pour sauvegarde temporaire des choix
+    private ChoixPersonnalisation choixPersonnalisation = new ChoixPersonnalisation();
+
+    @Autowired
+    public IndexController(FormatService formatService, ChoixPersonnalisation choixPersonnalisation) {
+        this.formatService = formatService;
+        this.choixPersonnalisation = choixPersonnalisation;
+    }
+
+
     //Index, page principale
     @GetMapping("/")
     public String index(Model model) {
@@ -32,22 +48,31 @@ public class IndexController {
 
 
     //Page parcours achat
-    @GetMapping("/oeuvre")
-    public String getOeuvre(Model model) {
-        //Rechercher BDD des format possible avec l'article selectionné, ref dans l'url ?
+
+    @GetMapping("/oeuvre/{ref}")
+    public String getOeuvre(Model model, @PathVariable Long ref) {
+        //Rechercher BDD des format possible avec la ref de l'article, ref dans l'url ?
         //...
+
         model.addAttribute("fragmentForm", "fragments :: format");
         model.addAttribute("fragment", "parcours_achat");
         return "index";
     }
 
-    @PostMapping("/oeuvre")
+    //route post pour le format
+    @PostMapping("/oeuvre/{ref}")
     public String postOeuvre(
             Model model,
-            @RequestParam(name = "format") String format
+            @RequestParam(name = "format") String format,
+            @PathVariable Long ref
     ) {
-        //Sauvegarde du choix de format pour les autres controllers
-        //...
+        if (!format.isEmpty()) {
+            //Voir pour un objet hors des fonctions pour le garder en vie sur les 3 controllers
+            choixPersonnalisation.setFormat(format);
+            model.addAttribute("fragmentForm", "fragments :: finition");
+            return "redirect:/oeuvre";
+        }
+        //model.addAttribute("ref", "/" + ref);
         model.addAttribute("fragment", "parcours_achat");
         return "index";
     }

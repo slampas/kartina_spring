@@ -1,5 +1,5 @@
 <div id="config_step_1" xmlns:th="http://www.thymeleaf.org" th:fragment="format">
-    <form th:action="@{/oeuvre}" method="POST" name="form_choix_format">
+    <form th:action="@{|/oeuvre/ref(ref=${ref})|}" method="POST" name="form_choix_format">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -38,7 +38,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/icone_format_grand.png" alt="">
+                        <img th:src="@{|/images/parcours_achat/icone_format_grand.png|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -57,7 +57,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/icone_format_geant.png" alt="">
+                        <img th:src="@{|/images/parcours_achat/icone_format_geant.png|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -76,7 +76,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/icone_format_collector.png" alt="">
+                        <img th:src="@{|/images/parcours_achat/icone_format_collector.png|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -95,7 +95,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/icone_format_classic.png" alt="">
+                        <img th:src="@{|/images/parcours_achat/icone_format_classic.png|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -154,7 +154,7 @@
             <tbody>
             <tr class="etape aligne_centre">
                 <td>
-                    <a class="a_etape_1" style="display:block"  th:href="@{/oeuvre}">
+                    <a class="a_etape_1" style="display:block" th:href="@{/oeuvre}">
                         <div>
                             <p class="inactif">1</p>
                             <p>Format</p>
@@ -162,7 +162,7 @@
                     </a>
                 </td>
                 <td class="etape_selectionnee">
-                    <a class="a_etape_2" style="display:block"  th:href="@{/oeuvre/finition}">
+                    <a class="a_etape_2" style="display:block" th:href="@{/oeuvre/finition}">
                         <div>
                             <p class="actif">2</p>
                             <p>Finition</p>
@@ -170,7 +170,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="a_etape_3" style="display:block"  th:href="@{/oeuvre/cadre}">
+                    <a class="a_etape_3" style="display:block" th:href="@{/oeuvre/cadre}">
                         <div>
                             <p class="inactif">3</p>
                             <p>Cadre</p>
@@ -181,7 +181,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/alu.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/alu.jpg}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -200,7 +200,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/alu_acry.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/alu_acry.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -222,7 +222,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/papier_photo.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/papier_photo.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
