@@ -26,10 +26,13 @@
     </section>
     <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
         <section id="bloc_personnalisation">
-            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: format }"></th:block>
-            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: finition }"></th:block>
-            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: cadre }"></th:block>
-<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: ${fragmentForm}"></th:block>-->
+<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: finition }"></th:block>-->
+<!--            <th:block th:insert="~{ fragments/parcours_achat_fragments/fragments :: cadre }"></th:block>-->
+<!--<th:block th:insert="~{fragments/parcours_achat_fragments/fragments :: format}"></th:block>-->
+             <th:block th:insert="~{fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
+
+            <!--            <th:block th:insert="~{ |fragments/parcours_achat_fragments/fragments :: ${fragmentForm}| }"></th:block>-->
+            <!--            <th:block th:insert="~{ |fragments/parcours_achat_fragments/fragments :: ${fragmentForm}|}"></th:block>-->
         </section>
     </section>
 </section>

@@ -36,7 +36,7 @@ public class IndexController {
     public String getOeuvre(Model model) {
         //Rechercher BDD des format possible avec l'article selectionné, ref dans l'url ?
         //...
-        model.addAttribute("fragmentForm", "format");
+        model.addAttribute("fragmentForm", "fragments :: format");
         model.addAttribute("fragment", "parcours_achat");
         return "index";
     }
