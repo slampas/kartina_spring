@@ -1,5 +1,4 @@
 function checkbox(element) {
-    debugger
     let form = element.form;
     let btn = form[form.length - 1];
     for (let i = 0; i < form.length - 1; i++) { // -1 pour le button

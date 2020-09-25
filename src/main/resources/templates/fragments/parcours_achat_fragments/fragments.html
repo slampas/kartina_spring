@@ -1,5 +1,5 @@
 <div id="config_step_1" xmlns:th="http://www.thymeleaf.org" th:fragment="format">
-    <form th:action="@{|/oeuvre/ref(ref=${ref})|}" method="POST" name="form_choix_format">
+    <form th:action="@{|/oeuvre/${ref}/finition|}" method="POST" name="form_choix_format">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -142,7 +142,7 @@
 </div>
 
 <div id="config_step_2" xmlns:th="http://www.thymeleaf.org" th:fragment="finition">
-    <form th:action="@{oeuvre/finition}" method="POST" name="form_choix_finition">
+    <form th:action="@{|/oeuvre/${ref}/cadre|}" method="POST" name="form_choix_finition">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -181,7 +181,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img th:src="@{|/images/parcours_achat/alu.jpg}" alt="">
+                        <img th:src="@{|/images/parcours_achat/alu.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -272,7 +272,7 @@
 </div>
 
 <div id="config_step_3" xmlns:th="http://www.thymeleaf.org" th:fragment="cadre">
-    <form th:action="@{oeuvre/cadre}" method="POST" name="form_choix_cadre">
+    <form th:action="@{|/oeuvre/${ref}|}" method="POST" name="form_choix_cadre">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -313,7 +313,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/sans_cadre.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/sans_cadre.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -332,7 +332,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/cadre_noir_satin.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/cadre_noir_satin.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -345,14 +345,14 @@
                     </label>
                 </td>
                 <td>
-                    <input type="checkbox" name="format" id="choix_cadre_2" value="noir_satin"
+                    <input type="checkbox" name="cadre" id="choix_cadre_2" value="noir_satin"
                            class="largeCheckbox" onclick="checkbox(this)">
                 </td>
             </tr>
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/cadre_blanc_satin.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/cadre_blanc_satin.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -372,7 +372,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/cadre_noyer.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/cadre_noyer.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
@@ -392,7 +392,7 @@
             <tr class="choix">
                 <td>
                     <figure>
-                        <img src="./images/parcours_achat/cadre_chene.jpg" alt="">
+                        <img th:src="@{|/images/parcours_achat/cadre_chene.jpg|}" alt="">
                     </figure>
                 </td>
                 <td>
