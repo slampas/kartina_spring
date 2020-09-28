@@ -14,14 +14,13 @@ public class IndexController {
     private FormatService formatService;
 
     //Objet pour sauvegarde temporaire des choix
-    private ChoixPersonnalisation choixPersonnalisation;
+    private final ChoixPersonnalisation choixPersonnalisation;
 
     @Autowired
     public IndexController(FormatService formatService, ChoixPersonnalisation choixPersonnalisation) {
         this.formatService = formatService;
         this.choixPersonnalisation = choixPersonnalisation;
     }
-
 
     //Index, page principale
     @GetMapping("/")
@@ -56,39 +55,54 @@ public class IndexController {
         return "index";
     }
 
+    //Recupération du format
     @PostMapping("/oeuvre/{ref}/finition")
     public String postOeuvreFinition(
             Model model,
             @PathVariable Long ref,
             @RequestParam(name = "format") String format
+            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
     ) {
+        //choixForm.setFormat(format);
+
+        System.out.println("Format : " + format);
         choixPersonnalisation.setFormat(format);
-        System.out.println("obj = " + choixPersonnalisation.toString());
+        System.out.println("Obj : " + choixPersonnalisation);
+        model.addAttribute("format", format);
         model.addAttribute("fragmentForm", "fragments :: finition");
         model.addAttribute("fragment", "parcours_achat");
         return "index";
     }
 
+    //Recupération du finition
     @PostMapping("/oeuvre/{ref}/cadre")
     public String postOeuvreCadre(
             Model model,
             @PathVariable Long ref,
             @RequestParam(name = "finition") String finition
+            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
+
     ) {
+        System.out.println("Finition : " + finition);
         choixPersonnalisation.setFinition(finition);
-        System.out.println("obj = " + choixPersonnalisation.toString());
+        System.out.println("Obj : " + choixPersonnalisation);
+        model.addAttribute("finition", finition);
         model.addAttribute("fragmentForm", "fragments :: cadre");
         model.addAttribute("fragment", "parcours_achat");
         return "index";
     }
 
+    //Recupération du cadre
     @PostMapping("/oeuvre/{ref}")
     public String postOeuvre(
             @RequestParam(name = "cadre") String cadre
+            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
     ) {
+        System.out.println("Cadre : " + cadre);
         choixPersonnalisation.setCadre(cadre);
-        System.out.println("obj = " + choixPersonnalisation.toString());
+        System.out.println("Obj : " + choixPersonnalisation);
 
-        return "redirect:/oeuvre/{ref}";
+//        TODO : Gestion du panier
+        return "redirect:/";
     }
 }

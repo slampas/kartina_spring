@@ -664,6 +664,7 @@ section#parcours_achat {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 section#parcours_achat ul {
