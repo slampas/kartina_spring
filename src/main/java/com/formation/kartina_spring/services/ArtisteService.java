@@ -1,6 +1,7 @@
 package com.formation.kartina_spring.services;
 
 import com.formation.kartina_spring.models.Artiste;
+import com.formation.kartina_spring.repositories.ArticleRepository;
 import com.formation.kartina_spring.repositories.ArtisteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,10 @@ public class ArtisteService {
     public List<Artiste> findAll() {
         return artisteRepository.findAll();
     }
+
+
+    
+
+
+
 }

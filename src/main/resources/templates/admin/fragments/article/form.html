@@ -1,0 +1,65 @@
+<form class="p-5" th:action="@{|/admin/articles${action}|}" method="post"
+      enctype="multipart/form-data"
+      th:object="${article}"
+      xmlns:th="http://www.thymeleaf.org">
+  
+  
+  
+  
+  
+  
+  
+      <div class="form-group">
+        <label for="ref">Ref</label>
+        <input type="text" class="form-control" th:field="*{articleRef}" disabled>
+    </div>
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" th:field="*{name}">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+
+    <input type="hidden" th:field="*{description}">
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" th:field="*{description}"></textarea>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="prixBase">Prix de Base</label>
+        <input type="number " class="form-control" th:field="*{prixBase}">
+        <div th:if="${#fields.hasErrors('prixBase')}" th:errors="*{prixBase}"></div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="dateAjout">Date d'ajout</label>
+        <input type="Calendar" class="form-control" th:field="*{dateAjout}">
+        <div th:if="${#fields.hasErrors('dateAjout')}" th:errors="*{dateAjout}"></div>
+    </div>
+
+
+
+    <div class="form-group custom-file">
+        <label for="image" class="custom-file-label">Lien pour Telecharger l'image</label>
+        <input type="file" accept="image/jpeg,image/png,image/heic,image/webp"
+               class="custom-file-input"
+               id="image" name="image">
+    </div>
+
+
+
+<!-- 
+    <img th:src="@{|/img/*{link}|}" alt="" width="100px" height="auto" id="imageToSrc">
+    <div class="form-group custom-file">
+        <label for="image" class="custom-file-label">Link</label>
+        <input type="file" accept="image/jpeg,image/png,image/heic,image/webp"
+               class="custom-file-input"
+               id="image" name="image">
+    </div>
+
+    --> 
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
