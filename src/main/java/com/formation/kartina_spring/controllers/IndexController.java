@@ -1,6 +1,7 @@
 package com.formation.kartina_spring.controllers;
 
 import com.formation.kartina_spring.models.ChoixPersonnalisation;
+import com.formation.kartina_spring.services.ArticleService;
 import com.formation.kartina_spring.services.FormatService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class IndexController {
 
-    private FormatService formatService;
-
     //Objet pour sauvegarde temporaire des choix
     private final ChoixPersonnalisation choixPersonnalisation;
 
+    private ArticleService articleService;
+
     @Autowired
-    public IndexController(FormatService formatService, ChoixPersonnalisation choixPersonnalisation) {
-        this.formatService = formatService;
+    public IndexController(ChoixPersonnalisation choixPersonnalisation, ArticleService articleService) {
         this.choixPersonnalisation = choixPersonnalisation;
+        this.articleService = articleService;
     }
 
     //Index, page principale
@@ -50,6 +51,13 @@ public class IndexController {
             Model model,
             @PathVariable Long ref
     ) {
+        // TODO : Recherche de la photo par rapport à la ref de l'url
+
+
+        // TODO : Recuperation du link
+
+
+        // TODO : Recupération du nom de l'artiste, titre  oeuvre / description associés
         model.addAttribute("fragmentForm", "fragments :: format");
         model.addAttribute("fragment", "parcours_achat");
         return "index";
@@ -61,9 +69,7 @@ public class IndexController {
             Model model,
             @PathVariable Long ref,
             @RequestParam(name = "format") String format
-            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
     ) {
-        //choixForm.setFormat(format);
 
         System.out.println("Format : " + format);
         choixPersonnalisation.setFormat(format);
@@ -80,7 +86,6 @@ public class IndexController {
             Model model,
             @PathVariable Long ref,
             @RequestParam(name = "finition") String finition
-            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
 
     ) {
         System.out.println("Finition : " + finition);
@@ -96,13 +101,12 @@ public class IndexController {
     @PostMapping("/oeuvre/{ref}")
     public String postOeuvre(
             @RequestParam(name = "cadre") String cadre
-            //,@ModelAttribute(name = "choixForm") ChoixPersonnalisation choixForm
     ) {
         System.out.println("Cadre : " + cadre);
         choixPersonnalisation.setCadre(cadre);
         System.out.println("Obj : " + choixPersonnalisation);
 
-//        TODO : Gestion du panier
+        // TODO : Gestion du panier
         return "redirect:/";
     }
 }

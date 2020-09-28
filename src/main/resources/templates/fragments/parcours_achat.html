@@ -26,8 +26,6 @@
     </section>
     <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
         <section id="bloc_personnalisation">
-            <!-- fragments/parcours_achat_fragments/fragments :: format-->
-
             <!--   Même si souligné, le th:if fonctionne...-->
             <th:block th:if="${ fragmentForm }">
                 <th:block th:insert="~{/fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
