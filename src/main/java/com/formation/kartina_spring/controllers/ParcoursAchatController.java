@@ -5,7 +5,6 @@ import com.formation.kartina_spring.models.Artiste;
 import com.formation.kartina_spring.models.ChoixPersonnalisation;
 import com.formation.kartina_spring.models.Image;
 import com.formation.kartina_spring.services.ArticleService;
-import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,21 +64,14 @@ public class ParcoursAchatController {
             @RequestParam(name = "cadre", required = false) String cadre,
             @RequestParam(name = "etape") String etape
     ) {
-        //On recupere l'objet article
         Optional<Article> article = articleService.findById(ref);
         if (article.isPresent()) {
-            //On recupere la liste des artistes associés à l'article
             List<Artiste> artistes = article.get().getArtistes();
-
-            //On recupere la liste d'image associé à l'article
             List<Image> images = article.get().getImages();
-
-            //Envoie à la vue
             model.addAttribute("article", article);
             model.addAttribute("artistes", artistes);
             model.addAttribute("images", images);
         }
-        //Reception des choix
         switch (etape) {
             case "finition":
                 if (!format.isEmpty()) {

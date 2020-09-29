@@ -3,11 +3,13 @@
         <section id="bloc_previsu">
             <article>
                 <figure th:each=" image : ${images}">
-<!--                    <img th:src="@{|/images/${image.get().getUrl()}|}" alt="">-->
+                    <img th:src="@{|/images/${image.getUrl()}|}" alt="">
                 </figure>
             </article>
             <ul>
-                <li><a href="#"><img th:src="@{|/images/2371.jpg|}" alt=""></a></li>
+                <th:block th:each="image : ${images}">
+                    <li><a href="#"><img th:src="@{|/images/${image.getUrl()}|}" alt=""></a></li>
+                </th:block>
                 <li><a href="#"><img th:src="@{|/images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
             </ul>
         </section>

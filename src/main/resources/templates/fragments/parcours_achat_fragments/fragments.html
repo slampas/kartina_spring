@@ -11,7 +11,7 @@
             <tbody>
             <tr class="etape aligne_centre">
                 <td class="etape_selectionnee">
-                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}|}">
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
                         <div>
                             <p class="actif">1</p>
                             <p>Format</p>
@@ -19,7 +19,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="a_etape_2" style="display:block" th:href="@{/oeuvre/finition}">
+                    <a class="a_etape_2" style="display:block">
                         <div>
                             <p class="inactif">2</p>
                             <p>Finition</p>
@@ -27,7 +27,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="a_etape_3" style="display:block" th:href="@{/oeuvre/cadre}">
+                    <a class="a_etape_3" style="display:block">
                         <div>
                             <p class="inactif">3</p>
                             <p>Cadre</p>
@@ -157,7 +157,7 @@
             <tbody>
             <tr class="etape aligne_centre">
                 <td>
-                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}|}">
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
                         <div>
                             <p class="inactif">1</p>
                             <p>Format</p>
@@ -165,7 +165,7 @@
                     </a>
                 </td>
                 <td class="etape_selectionnee">
-                    <a class="a_etape_2" style="display:block" th:href="@{/oeuvre/finition}">
+                    <a class="a_etape_2" style="display:block">
                         <div>
                             <p class="actif">2</p>
                             <p>Finition</p>
@@ -173,7 +173,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="a_etape_3" style="display:block" th:href="@{/oeuvre/cadre}">
+                    <a class="a_etape_3" style="display:block">
                         <div>
                             <p class="inactif">3</p>
                             <p>Cadre</p>
@@ -339,7 +339,7 @@
             <tbody>
             <tr class="etape aligne_centre">
                 <td>
-                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}|}">
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
                         <div>
                             <p class="inactif">1</p>
                             <p>Format</p>
@@ -347,7 +347,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="a_etape_2" style="display:block" th:href="@{/oeuvre/finition}">
+                    <a class="a_etape_2" style="display:block" href="javascript:void(0);" onclick="goBack()">
                         <div>
                             <p class="inactif">2</p>
                             <p>Finition</p>
@@ -355,7 +355,7 @@
                     </a>
                 </td>
                 <td class="etape_selectionnee">
-                    <a class="a_etape_3" style="display:block" th:href="@{/oeuvre/cadre}">
+                    <a class="a_etape_3" style="display:block">
                         <div>
                             <p class="actif">3</p>
                             <p>Cadre</p>
