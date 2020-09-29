@@ -12,21 +12,19 @@
             </ul>
         </section>
         <section id="bloc_description">
-            <h3><a href="/artist?name=nomArtiste">Nom Artiste</a></h3>
-            <h4>Titre de l'oeuvre</h4>
-            <p>
-                Description : Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, cupiditate ut
-                omnis illum architecto eos veniam amet mollitia quam ipsa tempore ab libero quos! Molestias dolorum
-                sint
-                animi harum optio.Natus impedit ut aliquid molestiae eum consequuntur quas repellendus sequi, iusto
-                iste optio quia? Quae, dolores quod minima eius commodi, corporis reprehenderit et unde, illo est
-                eaque? Est, officia repellendus!
-            </p>
+            <th:block th:each=" artiste : ${artistes}">
+                <h3>
+                    <a th:href="@{|/artist?name=${artiste.getNom()}&forname=${artiste.getPrenom()}|}"
+                       th:text="${artiste.getNom() + ' ' + artiste.getPrenom()}">
+                    </a>
+                </h3>
+            </th:block>
+            <h4 th:text="${ article.get().getNom() }"></h4>
+            <p th:text="${ article.get().getDescription() }"></p>
         </section>
     </section>
     <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
         <section id="bloc_personnalisation">
-            <!--   Même si souligné, le th:if fonctionne...-->
             <th:block th:if="${ fragmentForm }">
                 <th:block th:insert="~{/fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
             </th:block>

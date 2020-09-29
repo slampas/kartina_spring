@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import lombok.ToString;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NaturalId;
@@ -25,9 +26,9 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleRef;
 
-    @NaturalId
-    @Column(nullable = false)
-    private String name;
+//    @NaturalId
+//    @Column(nullable = false)
+//    private String name;
 
     @NaturalId
     @Column(nullable = false)
@@ -51,6 +52,7 @@ public class Article {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @ToString.Exclude
     private List<DetailCommande> commandes = new ArrayList<>();
 
     @OneToMany(
@@ -58,24 +60,29 @@ public class Article {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @ToString.Exclude
     private List<JointureArticleFormat> formats = new ArrayList<>();
 
     @ManyToMany(mappedBy = "articles")
+    @ToString.Exclude
     private List<Artiste> artistes = new ArrayList<>();
 
     @OneToMany(mappedBy = "article")
+    @ToString.Exclude
     private List<Image> images = new ArrayList<>();
 
     @ManyToOne
     private Orientation orientation;
 
     @ManyToMany
+    @ToString.Exclude
     @JoinTable(name = "JointureArticleTheme",
             joinColumns = {@JoinColumn(name = "article_id")},
             inverseJoinColumns = {@JoinColumn(name = "theme_id")})
     private List<Theme> themes = new ArrayList<>();
 
     @ManyToMany
+    @ToString.Exclude
     @JoinTable(name = "JointureArticleTag",
             joinColumns = {@JoinColumn(name = "article_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")})
