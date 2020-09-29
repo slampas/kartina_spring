@@ -1,5 +1,5 @@
 <div id="config_step_1" xmlns:th="http://www.thymeleaf.org" th:fragment="format">
-    <form th:action="@{|/oeuvre/${ref}/finition|}" method="POST" name="form_choix_format">
+    <form th:action="@{|/oeuvre/${ref}?etape=finition|}" method="POST" name="form_choix_format">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -115,8 +115,11 @@
                 <td></td>
                 <td class="hide-cells"></td>
                 <td>
-                    <div><a id="next_format" href="#">Etape suivante <i
-                            class="fas fa-angle-right"></i></a></div>
+                    <div>
+                        <button class="btn_forward" type="submit" disabled>Etape suivante <i
+                                class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
                 </td>
             </tr>
             <tr class="aligne_centre">
@@ -142,7 +145,7 @@
 </div>
 
 <div id="config_step_2" xmlns:th="http://www.thymeleaf.org" th:fragment="finition">
-    <form th:action="@{|/oeuvre/${ref}/cadre|}" method="POST" name="form_choix_finition">
+    <form th:action="@{|/oeuvre/${ref}?etape=cadre|}" method="POST" name="form_choix_finition">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -285,13 +288,20 @@
 
             <tr class="navigation">
                 <td>
-                    <div><a href="parcours_achat.html"><i class="fas fa-angle-left"></i> Etape
-                        précedente</a></div>
+                    <div>
+                        <button class="btn_back" type="button" onclick="goBack()"><i class="fas fa-angle-left"></i>
+                            Etape
+                            précedente
+                        </button>
+                    </div>
                 </td>
                 <td class="hide-cells"></td>
                 <td>
-                    <div><a href="parcours_achat_frag_cadre.html">Etape suivante <i
-                            class="fas fa-angle-right"></i></a></div>
+                    <div>
+                        <button class="btn_forward" type="submit" disabled>Etape suivante <i
+                                class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
                 </td>
             </tr>
             <tr class="aligne_centre">
@@ -317,7 +327,7 @@
 </div>
 
 <div id="config_step_3" xmlns:th="http://www.thymeleaf.org" th:fragment="cadre">
-    <form th:action="@{|/oeuvre/${ref}|}" method="POST" name="form_choix_cadre">
+    <form th:action="@{|/oeuvre/${ref}?etape=panier|}" method="POST" name="form_choix_cadre">
         <table aria-describedby="Formulaire de choix du format">
             <thead>
             <tr>
@@ -561,10 +571,11 @@
 
             <tr class="navigation">
                 <td>
-                    <div><a href="parcours_achat_frag_finition.html"><i
-                            class="fas fa-angle-left"></i>
-                        Etape
-                        précedente</a></div>
+                    <div>
+                        <button class="btn_back" type="button" onclick="goBack()"><i class="fas fa-angle-left"></i>
+                            Etape précedente
+                        </button>
+                    </div>
                 </td>
                 <td class="hide-cells"></td>
                 <td class="hide-cells"></td>

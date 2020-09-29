@@ -8,4 +8,14 @@ function checkbox(element) {
     }
     //Activation du bouton
     btn.disabled = false;
+
+    //Activation des boutons etapes suivante
+    let boutonsForward = document.getElementsByClassName("btn_forward");
+    for (let i = 0; i < boutonsForward.length; i++) {
+        boutonsForward[i].disabled = false;
+    }
+}
+
+function goBack() {
+    window.history.back();
 }

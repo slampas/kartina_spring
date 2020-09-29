@@ -2,8 +2,8 @@
     <section id="partie_gauche">
         <section id="bloc_previsu">
             <article>
-                <figure>
-                    <img th:src="@{|/images/2371.jpg|}" alt="">
+                <figure th:each=" image : ${images}">
+<!--                    <img th:src="@{|/images/${image.get().getUrl()}|}" alt="">-->
                 </figure>
             </article>
             <ul>

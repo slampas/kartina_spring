@@ -3,7 +3,9 @@ package com.formation.kartina_spring.controllers;
 import com.formation.kartina_spring.models.Article;
 import com.formation.kartina_spring.models.Artiste;
 import com.formation.kartina_spring.models.ChoixPersonnalisation;
+import com.formation.kartina_spring.models.Image;
 import com.formation.kartina_spring.services.ArticleService;
+import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,108 +30,80 @@ public class ParcoursAchatController {
         this.articleService = articleService;
     }
 
-    //Page parcours achat
-    @GetMapping("/oeuvre/{ref}/format")
+
+    @GetMapping("/oeuvre/{ref}")
     public String getOeuvre(
             Model model,
-            @PathVariable Long ref
-    ) {
-        //On recupere l'objet article
-        Optional<Article> article = articleService.findById(ref);
-        if (article.isPresent()) {
-            //On recupere la liste des artistes associés à l'article
-            List<Artiste> artistes = article.get().getArtistes();
-            //Envoie à la vue
-            model.addAttribute("article", article);
-            model.addAttribute("artistes", artistes);
-            model.addAttribute("fragmentForm", "fragments :: format");
-            model.addAttribute("fragment", "parcours_achat");
-            return "index";
-        } else {
-            return "redirect:/";
-        }
-    }
-
-    //Recupération du format
-    @PostMapping("/oeuvre/{ref}/finition")
-    public String postOeuvreFinition(
-            Model model,
             @PathVariable Long ref,
-            @RequestParam(name = "format") String format
+            @RequestParam(name = "etape", required = true) String etape
     ) {
         //On recupere l'objet article
         Optional<Article> article = articleService.findById(ref);
-        choixPersonnalisation.setFormat(format);
         if (article.isPresent()) {
             //On recupere la liste des artistes associés à l'article
             List<Artiste> artistes = article.get().getArtistes();
+
+            //On recupere la liste d'image associé à l'article
+            List<Image> images = article.get().getImages();
+
             //Envoie à la vue
             model.addAttribute("article", article);
             model.addAttribute("artistes", artistes);
-            model.addAttribute("format", format);
-            model.addAttribute("fragmentForm", "fragments :: finition");
-            model.addAttribute("fragment", "parcours_achat");
-            return "index";
-        } else {
-            return "redirect:/";
+            model.addAttribute("images", images);
         }
+        model.addAttribute("fragment", "parcours_achat");
+        model.addAttribute("fragmentForm", "fragments :: format");
+        return "index";
     }
 
-    //Recupération du finition
-    @PostMapping("/oeuvre/{ref}/cadre")
-    public String postOeuvreCadre(
-            Model model,
-            @PathVariable Long ref,
-            @RequestParam(name = "finition") String finition
-
-    ) {
-        choixPersonnalisation.setFinition(finition);
-
-        //On recupere l'objet article
-        Optional<Article> article = articleService.findById(ref);
-
-        if (article.isPresent()) {
-            //On recupere la liste des artistes associés à l'article
-            List<Artiste> artistes = article.get().getArtistes();
-            //Envoie à la vue
-            model.addAttribute("article", article);
-            model.addAttribute("artistes", artistes);
-            model.addAttribute("finition", finition);
-            model.addAttribute("fragmentForm", "fragments :: cadre");
-            model.addAttribute("fragment", "parcours_achat");
-            return "index";
-        } else {
-            return "redirect:/";
-        }
-    }
-
-
-    //Recupération du cadre
     @PostMapping("/oeuvre/{ref}")
     public String postOeuvre(
             Model model,
             @PathVariable Long ref,
-            @RequestParam(name = "cadre") String cadre
+            @RequestParam(name = "format", required = false) String format,
+            @RequestParam(name = "finition", required = false) String finition,
+            @RequestParam(name = "cadre", required = false) String cadre,
+            @RequestParam(name = "etape") String etape
     ) {
-        choixPersonnalisation.setCadre(cadre);
         //On recupere l'objet article
         Optional<Article> article = articleService.findById(ref);
-
         if (article.isPresent()) {
             //On recupere la liste des artistes associés à l'article
             List<Artiste> artistes = article.get().getArtistes();
+
+            //On recupere la liste d'image associé à l'article
+            List<Image> images = article.get().getImages();
+
             //Envoie à la vue
             model.addAttribute("article", article);
             model.addAttribute("artistes", artistes);
-            model.addAttribute("cadre", cadre);
-            model.addAttribute("fragmentForm", "fragments :: cadre");
-            model.addAttribute("fragment", "parcours_achat");
-            System.out.println(choixPersonnalisation);
-
-            // TODO : Envoi des infos vers la page du panier
-            return "redirect:/";
-        } else {
-            return "redirect:/";
+            model.addAttribute("images", images);
         }
+        //Reception des choix
+        switch (etape) {
+            case "finition":
+                if (!format.isEmpty()) {
+                    choixPersonnalisation.setFormat(format);
+                    model.addAttribute("format", format);
+                    model.addAttribute("fragmentForm", "fragments :: finition");
+                }
+                break;
+            case "cadre":
+                if (!finition.isEmpty()) {
+                    choixPersonnalisation.setFinition(finition);
+                    model.addAttribute("finition", finition);
+                    model.addAttribute("fragmentForm", "fragments :: cadre");
+                }
+                break;
+            case "panier":
+                if (!cadre.isEmpty()) {
+                    choixPersonnalisation.setCadre(cadre);
+                    System.out.println(choixPersonnalisation);
+                    // TODO : Envoi des infos vers la page du panier
+                    return "redirect:/";
+                }
+        }
+        model.addAttribute("fragment", "parcours_achat");
+        return "index";
     }
 }
