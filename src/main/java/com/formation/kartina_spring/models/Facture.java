@@ -49,6 +49,8 @@ public class Facture {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+
+    /*a voir avec marc-antoine pourquoi ce setter ?*/
 	public void setDate(GregorianCalendar gregorianCalendar) {
 	}
 }

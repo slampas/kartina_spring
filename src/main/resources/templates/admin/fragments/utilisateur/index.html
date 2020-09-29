@@ -1,0 +1,32 @@
+<div class="p-5">
+    <table class="table table-striped" xmlns:th="http://www.thymeleaf.org">
+        <thead>
+        <tr>
+            <th scope="col">Adresse mail ID</th>
+            <th scope="col">cicilite</th>
+            <th scope="col">nom</th>
+            <th scope="col">prenom</th>
+            <th scope="col">telephone</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="art : ${utilisateurs}" th:object="${art}">
+            <th scope="row" th:text="*{email}"></th>
+            <td th:text="*{nom}">Mark</td>
+            <td th:text="*{prenom}">Otto</td>
+            <td th:text="*{telephone}">@mdo</td>
+            
+
+            <td>
+                <a th:href="@{|/admin/utilisateures/*{email}?action=update|}">
+                    <button class="btn btn-primary">Modifié</button>
+                </a>
+                <a th:href="@{|/admin/utilisateures/*{email}?action=delete|}">
+                    <button class="btn btn-danger">Supprimer</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

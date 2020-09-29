@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FactureService {
@@ -23,4 +24,14 @@ public class FactureService {
     public List<Facture> findAll() {
         return factureRepository.findAll();
     }
+
+    public void delete(Long ref) {
+        factureRepository.deleteById(ref);
+    }
+
+
+    public Optional<Facture> findById(Long ref) {
+        return factureRepository.findById(ref);
+    }
+
 }
