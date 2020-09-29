@@ -1,51 +1,52 @@
 package com.formation.kartina_spring.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.NaturalIdCache;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NaturalIdCache
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleRef;
     
     
-    @NaturalId
     @Column(nullable = false)
     private String name;
  
  
  
     /**doublon  à voir avec marc antoine**/
-    @NaturalId
     @Column(nullable = false)
     private String nom;
 
-    @NaturalId
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @NaturalId
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false)
     private Float prixBase;
 
-    @NaturalId
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Calendar dateAjout;

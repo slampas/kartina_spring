@@ -19,10 +19,10 @@
             <td th:text="*{dateAjout}">@mdo</td>
 
             <td>
-                <a th:href="@{|/admin/articles/*{ref}?action=update|}">
+                <a th:href="@{|/admin/articles/*{articleRef}?action=update|}">
                     <button class="btn btn-primary">Modifié</button>
                 </a>
-                <a th:href="@{|/admin/articles/*{ref}?action=delete|}">
+                <a th:href="@{|/admin/articles/*{articleRef}?action=delete|}">
                     <button class="btn btn-danger">Supprimer</button>
                 </a>
             </td>
