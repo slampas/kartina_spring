@@ -4,10 +4,10 @@
         <tr>
             <th scope="col">Ref article</th>
             <th scope="col">Nom</th>
+            
+            <th scope="col">Prix Base</th>
             <th scope="col">Description</th>
-            <th scope="col">Prix Base</th>
-            <th scope="col">Date Ajout</th>
-            <th scope="col">Prix Base</th>
+    
         </tr>
         </thead>
         <tbody>
@@ -16,7 +16,7 @@
             <td th:text="*{name}">Mark</td>
             <td th:text="*{prixBase}">Otto</td>
             <td th:text="*{description}">@mdo</td>
-            <td th:text="*{dateAjout}">@mdo</td>
+            
 
             <td>
                 <a th:href="@{|/admin/articles/*{articleRef}?action=update|}">
