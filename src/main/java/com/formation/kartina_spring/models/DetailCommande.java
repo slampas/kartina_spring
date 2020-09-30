@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 public class DetailCommande {
     @EmbeddedId
-    private DetailCommandeId id;
+    private DetailCommandeId id = new DetailCommandeId();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("commandeId")
@@ -25,12 +25,12 @@ public class DetailCommande {
     @Column(nullable = false)
     private Integer quantiteArticle;
 
-    @Column(length = 100, nullable = false)
-    private String format;
+    @OneToOne
+    private Format format;
 
-    @Column(length = 100, nullable = false)
-    private String finition;
+    @OneToOne
+    private Finition finition;
 
-    @Column(length = 100, nullable = false)
-    private String cadre;
+    @OneToOne
+    private Cadre cadre;
 }

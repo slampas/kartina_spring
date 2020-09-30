@@ -12,26 +12,26 @@ import org.hibernate.annotations.NaturalIdCache;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NaturalIdCache
-@Cache(
-        usage = CacheConcurrencyStrategy.READ_WRITE
-)
 public class Format {
     @Id
     @GeneratedValue
     private Long formatId;
 
-    @NaturalId
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private FormatEnum formatEnum;
 
+    private Float coefficientPrix;
+
+    @ManyToMany
+    private List<Finition> finitions = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "format",
@@ -39,11 +39,11 @@ public class Format {
             orphanRemoval = true
     )
     private List<JointureArticleFormat> articles = new ArrayList<>();
-
-    @OneToMany(
-            mappedBy = "format",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<JointureFormatFinition> finitions = new ArrayList<>();
+//
+//    @OneToMany(
+//            mappedBy = "format",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<JointureFormatFinition> finitions = new ArrayList<>();
 }

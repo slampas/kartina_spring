@@ -19,30 +19,21 @@ import org.hibernate.annotations.NaturalIdCache;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NaturalIdCache
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleRef;
 
-//    @NaturalId
-//    @Column(nullable = false)
-//    private String name;
-
-    @NaturalId
     @Column(nullable = false)
     private String nom;
 
-    @NaturalId
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @NaturalId
     @Column(nullable = false, length = 10)
     private Float prixBase;
 
-    @NaturalId
+
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Calendar dateAjout;
@@ -71,20 +62,15 @@ public class Article {
     @ToString.Exclude
     private List<Image> images = new ArrayList<>();
 
-    @ManyToOne
-    private Orientation orientation;
-
-    @ManyToMany
+    @OneToMany(mappedBy = "article")
     @ToString.Exclude
-    @JoinTable(name = "JointureArticleTheme",
-            joinColumns = {@JoinColumn(name = "article_id")},
-            inverseJoinColumns = {@JoinColumn(name = "theme_id")})
+    private List<Orientation> orientation = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "articles")
+    @ToString.Exclude
     private List<Theme> themes = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "articles")
     @ToString.Exclude
-    @JoinTable(name = "JointureArticleTag",
-            joinColumns = {@JoinColumn(name = "article_id")},
-            inverseJoinColumns = {@JoinColumn(name = "tag_id")})
     private List<Tag> tags = new ArrayList<>();
 }

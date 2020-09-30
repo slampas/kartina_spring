@@ -33,8 +33,6 @@ public class Artiste {
     private List<Utilisateur> users = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "JointureArtisteArticle",
-            joinColumns = { @JoinColumn(name = "artiste_id") },
-            inverseJoinColumns = { @JoinColumn(name = "article_id") })
+    @JoinTable(name = "ArtisteArticle")
     private List<Article> articles = new ArrayList<>();
 }

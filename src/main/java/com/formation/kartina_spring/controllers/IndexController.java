@@ -2,6 +2,7 @@ package com.formation.kartina_spring.controllers;
 
 import com.formation.kartina_spring.models.ChoixPersonnalisation;
 import com.formation.kartina_spring.services.ArticleService;
+import com.formation.kartina_spring.utils.RemplissageBDDParcoursPhoto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,14 @@ public class IndexController {
     private final ChoixPersonnalisation choixPersonnalisation;
 
     private ArticleService articleService;
+    private RemplissageBDDParcoursPhoto remplissageBDDParcoursPhoto;
 
     @Autowired
-    public IndexController(ChoixPersonnalisation choixPersonnalisation, ArticleService articleService) {
+    public IndexController(ChoixPersonnalisation choixPersonnalisation, ArticleService articleService, RemplissageBDDParcoursPhoto remplissageBDDParcoursPhoto
+    ) {
         this.choixPersonnalisation = choixPersonnalisation;
         this.articleService = articleService;
+        this.remplissageBDDParcoursPhoto = remplissageBDDParcoursPhoto;
     }
 
     //Index, page principale
@@ -40,5 +44,11 @@ public class IndexController {
     public String getArtiste(Model model) {
         model.addAttribute("fragment", "artiste");
         return "index";
+    }
+
+    @GetMapping("/remplissage")
+    public String remplissage() {
+        remplissageBDDParcoursPhoto.saveDBArticle();
+        return "redirect:/";
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class Utilisateur {
 
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, length = 150)
     private String email;
 
     @Column(length = 10, nullable = false)
@@ -46,10 +46,10 @@ public class Utilisateur {
     @JoinColumn(nullable = false) //Il ne peut pas d'user sans role
     private UserType role;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Adresse adresse;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Artiste artiste;
 
     @OneToMany(mappedBy = "user")

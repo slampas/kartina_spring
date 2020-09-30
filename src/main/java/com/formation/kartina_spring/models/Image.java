@@ -3,7 +3,6 @@ package com.formation.kartina_spring.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
 @Data
@@ -27,6 +26,6 @@ public class Image {
     @Column(length = 8)
     private Long largeur;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Article article;
 }
