@@ -61,7 +61,7 @@ public class AdminArticleController {
         return "/admin/index";
     }
 
-    @GetMapping("{ref}")
+   /* @GetMapping("{ref}")
     public String oneArticle(@PathVariable Long ref, @RequestParam String action, Model model) {
         Optional<Article> article = articleService.findById(ref);
         if (action.equals("delete")) {
