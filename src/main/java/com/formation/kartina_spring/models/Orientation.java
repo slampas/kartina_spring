@@ -20,6 +20,9 @@ public class Orientation {
     @Column(length = 100, nullable = false)
     private OrientationEnun nom;
 
-    @OneToMany(mappedBy = "orientation")
-    private List<Article> articles = new ArrayList<>();
+//    @OneToMany(mappedBy = "orientation")
+//    private List<Article> articles = new ArrayList<>();
+
+    @ManyToOne
+    private Article article;
 }

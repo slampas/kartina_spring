@@ -21,13 +21,14 @@ import org.hibernate.annotations.Cache;
 @Entity
 public class Cadre {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cadreId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private CadreEnum cadreEnum;
 
+<<<<<<< HEAD
     @OneToMany(
             mappedBy = "cadre",
             cascade = CascadeType.ALL,
@@ -35,4 +36,17 @@ public class Cadre {
     )
     private List<JointureFinitionCadre> finitions = new ArrayList<>();
 
+=======
+    private Float coefficientPrix;
+
+    @ManyToMany(mappedBy = "cadres")
+    private List<Finition> finitions = new ArrayList<>();
+
+//    @OneToMany(
+//          //  mappedBy = "cadre",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<JointureFinitionCadre> finitions = new ArrayList<>();
+>>>>>>> feature/MAD_integration_parcours_achat
 }

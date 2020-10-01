@@ -1,10 +1,18 @@
 package com.formation.kartina_spring.models;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+<<<<<<< HEAD
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
+=======
+import javax.persistence.*;
+@Data
+@AllArgsConstructor
+>>>>>>> feature/MAD_integration_parcours_achat
 @NoArgsConstructor
 @Entity
 public class Image {
@@ -24,6 +32,6 @@ public class Image {
     @Column(length = 8)
     private Long largeur;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Article article;
 }

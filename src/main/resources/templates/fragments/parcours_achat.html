@@ -1,0 +1,38 @@
+<section id="parcours_achat" xmlns:th="http://www.thymeleaf.org">
+    <section id="partie_gauche">
+        <section id="bloc_previsu">
+            <article>
+                <figure th:each=" image : ${images}">
+                    <img th:src="@{|/images/${image.getUrl()}|}" alt="">
+                </figure>
+            </article>
+            <ul>
+                <th:block th:each="image : ${images}">
+                    <li><a href="#"><img th:src="@{|/images/${image.getUrl()}|}" alt=""></a></li>
+                </th:block>
+                <li><a href="#"><img th:src="@{|/images/parcours_achat/fond_salon_beige_prevu.jpg|}" alt=""></a></li>
+            </ul>
+        </section>
+        <section id="bloc_description">
+            <th:block th:each=" artiste : ${artistes}">
+                <h3>
+                    <a th:href="@{|/artist?name=${artiste.getNom()}&forname=${artiste.getPrenom()}|}"
+                       th:text="${artiste.getNom() + ' ' + artiste.getPrenom()}">
+                    </a>
+                </h3>
+            </th:block>
+            <h4 th:text="${ article.get().getNom() }"></h4>
+            <p th:text="${ article.get().getDescription() }"></p>
+        </section>
+    </section>
+    <section id="partie_droite" xmlns:th="http://www.thymeleaf.org">
+        <section id="bloc_personnalisation">
+            <th:block th:if="${ fragmentForm }">
+                <th:block th:insert="~{/fragments/parcours_achat_fragments/__${fragmentForm}__}"></th:block>
+            </th:block>
+        </section>
+    </section>
+</section>
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <script th:src="@{|/js/parcours_achat.js|}"></script>
+</th:block>

@@ -16,25 +16,32 @@ import java.util.List;
 @Entity
 public class Finition {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long finitionId;
 
-    @NaturalId
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private FinitionEnum finitionEnum;
 
-    @OneToMany(
-            mappedBy = "finition",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<JointureFormatFinition> formats = new ArrayList<>();
+    private Float coefficientPrix;
 
-    @OneToMany(
-            mappedBy = "finition",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<JointureFinitionCadre> cadres = new ArrayList<>();
+    @ManyToMany
+    private List<Cadre> cadres = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "finitions")
+    private List<Format> formats = new ArrayList<>();
+
+//    @OneToMany(
+//           // mappedBy = "finition",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<JointureFormatFinition> formats = new ArrayList<>();
+//
+//    @OneToMany(
+//           // mappedBy = "finition",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<JointureFinitionCadre> cadres = new ArrayList<>();
 }

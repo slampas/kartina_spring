@@ -1,0 +1,602 @@
+<div id="config_step_1" xmlns:th="http://www.thymeleaf.org" th:fragment="format">
+    <form th:action="@{|/oeuvre/${ref}?etape=finition|}" method="POST" name="form_choix_format">
+        <table aria-describedby="Formulaire de choix du format">
+            <thead>
+            <tr>
+                <td colspan="3">
+                    <p class="aligne_centre">Créez votre photographie d'art sur mesure</p>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="etape aligne_centre">
+                <td class="etape_selectionnee">
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
+                        <div>
+                            <p class="actif">1</p>
+                            <p>Format</p>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a class="a_etape_2" style="display:block">
+                        <div>
+                            <p class="inactif">2</p>
+                            <p>Finition</p>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a class="a_etape_3" style="display:block">
+                        <div>
+                            <p class="inactif">3</p>
+                            <p>Cadre</p>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+            <tr class="choix">
+                <td>
+                    <figure>
+                        <img th:src="@{|/images/parcours_achat/icone_format_grand.png|}" alt="">
+                    </figure>
+                </td>
+                <td>
+                    <label for="choix_format_1">
+                        <div>
+                            <p>GRAND - 60 x 72cm à partir de 110,00 €</p>
+                            <p>Photographie montée sur aluminium, édition limitée 500 exemplaire</p>
+                        </div>
+                    </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="format" id="choix_format_1" value="grand"
+                           class="largeCheckbox" onclick="checkbox(this)">
+                </td>
+            </tr>
+            <tr class="choix">
+                <td>
+                    <figure>
+                        <img th:src="@{|/images/parcours_achat/icone_format_geant.png|}" alt="">
+                    </figure>
+                </td>
+                <td>
+                    <label for="choix_format_2">
+                        <div>
+                            <p>GEANT - 100 x 125cm à partir de 230,00 €</p>
+                            <p>Photographie montée sur aluminium, édition limitée 500 exemplaire</p>
+                        </div>
+                    </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="format" id="choix_format_2" value="geant"
+                           class="largeCheckbox" onclick="checkbox(this)">
+                </td>
+            </tr>
+            <tr class="choix">
+                <td>
+                    <figure>
+                        <img th:src="@{|/images/parcours_achat/icone_format_collector.png|}" alt="">
+                    </figure>
+                </td>
+                <td>
+                    <label for="choix_format_3">
+                        <div>
+                            <p>COLLECTOR - 120 x 150cm à partir de 670,00 €</p>
+                            <p>Photographie montée sur aluminium, édition limitée 100 exemplaire</p>
+                        </div>
+                    </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="format" id="choix_format_3" value="collector"
+                           class="largeCheckbox" onclick="checkbox(this)">
+                </td>
+            </tr>
+            <tr class="choix">
+                <td>
+                    <figure>
+                        <img th:src="@{|/images/parcours_achat/icone_format_classic.png|}" alt="">
+                    </figure>
+                </td>
+                <td>
+                    <label for="choix_format_4">
+                        <div>
+                            <p>CLASSIQUE - 24 x 30cm à partir de 60.40 €</p>
+                            <p>Photographie montée sur aluminium, édition limitée 100 exemplaire</p>
+                        </div>
+                    </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="format" id="choix_format_4" value="classique"
+                           class="largeCheckbox" onclick="checkbox(this)">
+                </td>
+            </tr>
+            <tr class="navigation">
+                <td></td>
+                <td class="hide-cells"></td>
+                <td>
+                    <div>
+                        <button class="btn_forward" type="submit" disabled>Etape suivante <i
+                                class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="aligne_centre">
+                <td class="hide-cells"></td>
+                <td>
+                    <p class="total">TOTAL</p>
+                </td>
+                <td>
+                    <p class="total">254.50 €</p>
+                </td>
+            </tr>
+            <tr class="aligne_centre">
+                <td colspan="3">
+                    <button type="submit" id="btn_format" autocomplete="off" disabled>Choisir ce
+                        format <i class="fas fa-angle-right fa-2x"
+                                  style="vertical-align: middle;"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div id="config_step_2" xmlns:th="http://www.thymeleaf.org" th:fragment="finition">
+    <form th:action="@{|/oeuvre/${ref}?etape=cadre|}" method="POST" name="form_choix_finition">
+        <table aria-describedby="Formulaire de choix du format">
+            <thead>
+            <tr>
+                <td colspan="3">
+                    <p class="aligne_centre">Créez votre photographie d'art sur mesure</p>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="etape aligne_centre">
+                <td>
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
+                        <div>
+                            <p class="inactif">1</p>
+                            <p>Format</p>
+                        </div>
+                    </a>
+                </td>
+                <td class="etape_selectionnee">
+                    <a class="a_etape_2" style="display:block">
+                        <div>
+                            <p class="actif">2</p>
+                            <p>Finition</p>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a class="a_etape_3" style="display:block">
+                        <div>
+                            <p class="inactif">3</p>
+                            <p>Cadre</p>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+
+            <th:block th:if="${ format == 'classique' }">
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/blackout.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_finition_4">
+                            <div>
+                                <p>Blackout</p>
+                                <p>Passe-partout noir avec liseret blanc</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="finition" id="choix_finition_4" value="blackout"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/artshot.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_finition_5">
+                            <div>
+                                <p>Artshot</p>
+                                <p>Passe-partout blanc</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="finition" id="choix_finition_5" value="artshot"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+            </th:block>
+
+            <th:block th:if="${ format == 'grand' || format == 'geant' || format == 'collector'}">
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/alu.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_finition_1">
+                            <div>
+                                <p>Support aluminium</p>
+                                <p>Tirage contrecollé sur support aluminium</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="finition" id="choix_finition_1" value="alu"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/alu_acry.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_finition_2">
+                            <div>
+                                <p>Support aluminium avec verre acrylique</p>
+                                <p>Tirage contrecollé sur support aluminium avec finition protectrice
+                                    en verre acrylique accentuant les constrats et les
+                                    couleurs
+                                </p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="finition" id="choix_finition_2" value="alu_acry"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/papier_photo.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_finition_3">
+                            <div>
+                                <p>Tirage sur papier photo</p>
+                                <p>Tirage sur papier photo expéridé roulé, à accrocher ou à encadrer</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="finition" id="choix_finition_3"
+                               value="papier_photo" class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+            </th:block>
+
+            <tr class="navigation">
+                <td>
+                    <div>
+                        <button class="btn_back" type="button" onclick="goBack()"><i class="fas fa-angle-left"></i>
+                            Etape
+                            précedente
+                        </button>
+                    </div>
+                </td>
+                <td class="hide-cells"></td>
+                <td>
+                    <div>
+                        <button class="btn_forward" type="submit" disabled>Etape suivante <i
+                                class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="aligne_centre">
+                <td class="hide-cells"></td>
+                <td>
+                    <p class="total">TOTAL</p>
+                </td>
+                <td>
+                    <p class="total">254.50 €</p>
+                </td>
+            </tr>
+            <tr class="aligne_centre">
+                <td colspan="3">
+                    <button type="submit" id="btn_finition" autocomplete="off" disabled>Choisir
+                        cette finition <i class="fas fa-angle-right fa-2x"
+                                          style="vertical-align: middle;"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div id="config_step_3" xmlns:th="http://www.thymeleaf.org" th:fragment="cadre">
+    <form th:action="@{|/oeuvre/${ref}?etape=panier|}" method="POST" name="form_choix_cadre">
+        <table aria-describedby="Formulaire de choix du format">
+            <thead>
+            <tr>
+                <td colspan="3">
+                    <p class="aligne_centre">Créez votre photographie d'art sur mesure</p>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="etape aligne_centre">
+                <td>
+                    <a class="a_etape_1" style="display:block" th:href="@{|/oeuvre/${ref}?etape=format|}">
+                        <div>
+                            <p class="inactif">1</p>
+                            <p>Format</p>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a class="a_etape_2" style="display:block" href="javascript:void(0);" onclick="goBack()">
+                        <div>
+                            <p class="inactif">2</p>
+                            <p>Finition</p>
+                        </div>
+                    </a>
+                </td>
+                <td class="etape_selectionnee">
+                    <a class="a_etape_3" style="display:block">
+                        <div>
+                            <p class="actif">3</p>
+                            <p>Cadre</p>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+
+            <th:block th:if="${ finition == 'alu' || finition == 'alu_acry'}">
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/sans_cadre.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_1">
+                            <div>
+                                <p>Sans encadrement</p>
+                                <p>Tirage contrecollé sur support aluminium</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_1" value="none"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_noir_satin.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_2">
+                            <div>
+                                <p>Encadrement noir satin</p>
+                                <p>Caisse américaine noire satinée assemblée à la main, apportant une
+                                    effet de luminosité et de profondeur</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_2" value="noir_satin"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_blanc_satin.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_3">
+                            <div>
+                                <p>Encadrement blanc satin</p>
+                                <p>Caisse américaine blanche satinée assemblée à la main, apportant une
+                                    effet de luminosité et de profondeur</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_3" value="blanc_satin"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_noyer.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_4">
+                            <div>
+                                <p>Encadrement noyer</p>
+                                <p>Caisse américaine en noyer massif assemblée à la main, apportant une
+                                    effet de luminosité et de profondeur</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_4" value="noyer"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_chene.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_5">
+                            <div>
+                                <p>Encadrement chêne</p>
+                                <p>Caisse américaine en chêne massif assemblée à la main, apportant une
+                                    effet de luminosité et de profondeur</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_5" value="chene"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+            </th:block>
+
+            <th:block th:if="${ finition == 'papier_photo' }">
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_non_dispo.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_6">
+                            <div>
+                                <p>Sans encadrement</p>
+                                <p>Tirage sur papier photo expédié roulé</p>
+                                <p>Bande blanche de 3cm autour de la photographie</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_6" value="non_dispo"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+            </th:block>
+
+            <th:block th:if="${ finition == 'blackout' || finition == 'artshot' }">
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_alu_noir.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_7">
+                            <div>
+                                <p>Aluminium noir</p>
+                                <p>Format 50x40 cm</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_7" value="alu_noir"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_bois_blanc.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_8">
+                            <div>
+                                <p>Bois blanc</p>
+                                <p>Format 50x40 cm</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_8" value="bois_blanc"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_alu_acajou_mat.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_9">
+                            <div>
+                                <p>Acajout mat</p>
+                                <p>Format 50x40 cm</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_9" value="alu_acajou"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+
+                <tr class="choix">
+                    <td>
+                        <figure>
+                            <img th:src="@{|/images/parcours_achat/cadre_alu_brosse.jpg|}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <label for="choix_cadre_10">
+                            <div>
+                                <p>Aluminium brossé</p>
+                                <p>Format 50x40 cm</p>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cadre" id="choix_cadre_10" value="alu_brosse"
+                               class="largeCheckbox" onclick="checkbox(this)">
+                    </td>
+                </tr>
+            </th:block>
+
+            <tr class="navigation">
+                <td>
+                    <div>
+                        <button class="btn_back" type="button" onclick="goBack()"><i class="fas fa-angle-left"></i>
+                            Etape précedente
+                        </button>
+                    </div>
+                </td>
+                <td class="hide-cells"></td>
+                <td class="hide-cells"></td>
+            </tr>
+            <tr class="aligne_centre">
+                <td class="hide-cells"></td>
+                <td>
+                    <p class="total">TOTAL</p>
+                </td>
+                <td>
+                    <p class="total">254.50 €</p>
+                </td>
+            </tr>
+            <tr class="aligne_centre">
+                <td colspan="3">
+                    <button type="submit" autocomplete="off" disabled>Ajouter au panier <i
+                            class="fas fa-angle-right fa-2x" style="vertical-align: middle;"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

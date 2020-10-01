@@ -493,7 +493,6 @@ section#container div#section_resultat {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
 }
 
 section#container div#section_resultat_barre_tri_photo {
@@ -665,6 +664,7 @@ section#parcours_achat {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 section#parcours_achat ul {
@@ -672,6 +672,11 @@ section#parcours_achat ul {
 }
 
 section#parcours_achat section#partie_gauche {
+    width: 50%;
+    min-width: 550px;
+}
+
+section#parcours_achat section#partie_droite {
     width: 50%;
     min-width: 550px;
 }
@@ -709,102 +714,110 @@ section#parcours_achat section#partie_gauche section#bloc_description h3, sectio
     margin: 5px 0px;
 }
 
+section#parcours_achat section#partie_gauche section#bloc_description h3 a {
+    color: black;
+    text-decoration: none;
+}
+
+section#parcours_achat section#partie_gauche section#bloc_description h3 a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 /*Partie droite*/
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation table thead tr td p {
+section#parcours_achat section#partie_droite section#bloc_personnalisation {
+    margin: 0px 5px 5px 5px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table {
+    border-collapse: collapse;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table thead tr td p {
     margin: 0px 0px 5px 0px;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation table tbody tr td.hide-cells {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr td.hide-cells {
     empty-cells: hide;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table {
     margin-bottom: 10px;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td a {
+    color: black;
+    text-decoration: none;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td a:hover div p:last-child {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td div {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td div p {
     margin: 0px;
     width: 50px;
     height: 50px;
     line-height: 50px;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p:first-child {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td div p:first-child {
     border-radius: 50%;
     background-color: rgb(216, 216, 216);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p.actif {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td div p.actif {
     border: 2px solid rgb(38, 165, 38);
     background-color: rgb(216, 216, 216);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td div p.inactif {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td div p.inactif {
     border: 2px solid rgb(165, 38, 38);
     background-color: rgb(172, 172, 172);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td {
     width: 33%;
     background-color: rgb(172, 172, 172);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#etape td.etape_selectionnee {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.etape td.etape_selectionnee {
     border-bottom: 3px solid black;
     background-color: rgb(216, 216, 216);
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
-    cursor: pointer;
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid rgba(233, 230, 230, 0.50);
 }
 
-/*Pour aligner label et checkbox*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-/*Pour aligner dans le label*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/*Pour mettre les deux paragraphes en colonnes*/
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td figure {
     margin: 5px;
-    max-width: 500px;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label div p span {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td figure img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td label div p {
+    margin: 0px;
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td label div p:first-child {
     font-weight: bold;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div label figure {
-    margin: 0px 10px 0px 5px;
-}
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.choix td div input.largeCheckbox {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.choix td input.largeCheckbox {
     width: 20px;
     height: 20px;
 }
@@ -813,28 +826,32 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation form 
     text-align: center;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td:first-child div {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.navigation td:first-child div {
     float: left;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td:last-child div {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.navigation td:last-child div {
     float: right;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td div a {
-    color: inherit;
-    text-decoration: none;
-}
-
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr#navigation td div a:hover {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.navigation td div button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: black;
     text-decoration: underline;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr td p.total {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.navigation td div button[disabled] {
+    color: rgba(100, 100, 100, 0.5);
+}
+
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr td p.total {
     font-weight: bold;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.aligne_centre td button {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.aligne_centre td button {
     width: 100%;
     cursor: pointer;
     outline: none;
@@ -842,10 +859,10 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation form 
     background-color: #0075ff;
     color: white;
     padding: 5px;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
-section#parcours_achat section#partie_droite section#bloc_personnalisation form table tbody tr.aligne_centre td button[disabled] {
+section#parcours_achat section#partie_droite section#bloc_personnalisation div form table tbody tr.aligne_centre td button[disabled] {
     background-color: #94c5fd;
 }
 
@@ -857,9 +874,11 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation form 
     section#container {
         margin-top: 215px;
     }
+
     div#content_container {
         margin-top: 145px;
     }
+
     div.container {
         margin-top: 215px;
     }
@@ -871,9 +890,11 @@ section#parcours_achat section#partie_droite section#bloc_personnalisation form 
     section#container {
         margin-top: 290px;
     }
+
     div#content_container {
         margin-top: 230px;
     }
+
     div.container {
         margin-top: 290px;
     }
