@@ -23,20 +23,7 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleRef;
-<<<<<<< HEAD
-    
-    
-    @NaturalId
-    @Column(nullable = false)
-    private String name;
- 
- 
- 
-    /**doublon  à voir avec marc antoine**/
-    @NaturalId
-=======
 
->>>>>>> feature/MAD_integration_parcours_achat
     @Column(nullable = false)
     private String nom;
 

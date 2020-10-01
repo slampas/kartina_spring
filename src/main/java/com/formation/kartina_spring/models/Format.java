@@ -5,14 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.NaturalIdCache;
-
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -39,11 +33,4 @@ public class Format {
             orphanRemoval = true
     )
     private List<JointureArticleFormat> articles = new ArrayList<>();
-//
-//    @OneToMany(
-//            mappedBy = "format",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<JointureFormatFinition> finitions = new ArrayList<>();
 }

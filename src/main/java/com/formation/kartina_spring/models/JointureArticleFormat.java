@@ -18,16 +18,11 @@ public class JointureArticleFormat {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @MapsId("articleId")
-    //@JoinColumn(name = "article_id")
     private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @MapsId("formatId")
-    //@JoinColumn(name = "format_id")
     private Format format;
-
-//    @Column(nullable = false)
-//    private Float coefficientPrix;
 
     @Column(nullable = false)
     private Integer quantiteDispo;

@@ -1,13 +1,13 @@
 package com.formation.kartina_spring.controllers;
 
-<<<<<<< HEAD
+
 import com.formation.kartina_spring.utils.RemplissageBDD;
 
-=======
+
 import com.formation.kartina_spring.models.ChoixPersonnalisation;
 import com.formation.kartina_spring.services.ArticleService;
 import com.formation.kartina_spring.utils.RemplissageBDDParcoursPhoto;
->>>>>>> feature/MAD_integration_parcours_achat
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,15 +55,15 @@ public class IndexController {
         return "index";
     }
 
-<<<<<<< HEAD
     @GetMapping("/remplissage")
-    public String remplissage(){
-        remplissageBDD.saveDB();
-=======
-    @GetMapping("/remplissageArticle")
     public String remplissage() {
+        remplissageBDD.saveDB();
+        return "redirect:/";
+    }
+
+    @GetMapping("/remplissageArticle")
+    public String remplissageArticle() {
         remplissageBDDParcoursPhoto.saveDBArticle();
->>>>>>> feature/MAD_integration_parcours_achat
         return "redirect:/";
     }
 }

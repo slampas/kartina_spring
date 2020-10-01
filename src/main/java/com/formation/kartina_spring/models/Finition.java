@@ -30,18 +30,4 @@ public class Finition {
 
     @ManyToMany(mappedBy = "finitions")
     private List<Format> formats = new ArrayList<>();
-
-//    @OneToMany(
-//           // mappedBy = "finition",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<JointureFormatFinition> formats = new ArrayList<>();
-//
-//    @OneToMany(
-//           // mappedBy = "finition",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<JointureFinitionCadre> cadres = new ArrayList<>();
 }

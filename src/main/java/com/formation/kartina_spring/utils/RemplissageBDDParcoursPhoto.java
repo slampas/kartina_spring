@@ -18,9 +18,6 @@ public class RemplissageBDDParcoursPhoto {
     private final FinitionService finitionService;
     private final FormatService formatService;
 
-    //    private final JointureFinitionCadreService jointureFinitionCadreService;
-//    private final JointureFormatFinitionService jointureFormatFinitionService;
-//    private final JointureArticleFormatService jointureArticleFormatService;
     private final JointureArticleFormatService articleFormatService;
 
     @Autowired
@@ -30,9 +27,6 @@ public class RemplissageBDDParcoursPhoto {
             CadreService cadreService,
             FinitionService finitionService,
             FormatService formatService,
-//            ,JointureFinitionCadreService jointureFinitionCadreService,
-//            JointureFormatFinitionService jointureFormatFinitionService,
-//            JointureArticleFormatService jointureArticleFormatService
             JointureArticleFormatService articleFormatService
     ) {
         this.articleService = articleService;
@@ -40,9 +34,7 @@ public class RemplissageBDDParcoursPhoto {
         this.cadreService = cadreService;
         this.finitionService = finitionService;
         this.formatService = formatService;
-//        this.jointureFinitionCadreService = jointureFinitionCadreService;
-//        this.jointureFormatFinitionService = jointureFormatFinitionService;
-//        this.jointureArticleFormatService = jointureArticleFormatService;
+
         this.articleFormatService = articleFormatService;
     }
 
@@ -52,10 +44,6 @@ public class RemplissageBDDParcoursPhoto {
         Format format1 = new Format();
         Cadre cadre1 = new Cadre();
         Finition finition1 = new Finition();
-
-//        JointureFinitionCadre jointureFinitionCadre1 = new JointureFinitionCadre();
-//        JointureFormatFinition jointureFormatFinition1 = new JointureFormatFinition();
-        // JointureArticleFormat jointureArticleFormat1 = new JointureArticleFormat();
 
         //***ARTICLE -IMAGE***
 
@@ -105,36 +93,6 @@ public class RemplissageBDDParcoursPhoto {
         finition1.setFinitionEnum(FinitionEnum.BLACKOUT);
         finition1.setCoefficientPrix(2.0f);
 
-//        List<JointureFinitionCadre> jointureFinitionCadres = new ArrayList<>();
-//        List<JointureFormatFinition> jointureFormatFinitions = new ArrayList<>();
-//        List<JointureArticleFormat> jointureArticleFormats = new ArrayList<>();
-
-
-        //jointureFinitionCadre1.setCadre(cadre1);
-        //jointureFinitionCadre1.setFinition(finition1);
-        //jointureFinitionCadre1.setCoefficientPrix(5.0f);
-
-        //jointureFormatFinition1.setFormat(format1);
-        //jointureFormatFinition1.setFinition(finition1);
-        //jointureFormatFinition1.setCoefficientPrix(2.0f);
-
-//        cadre1.getFinitions().add(jointureFinitionCadre1);
-//        format1.getFinitions().add(jointureFormatFinition1);
-//        finition1.getFormats().add(jointureFormatFinition1);
-//        article1.getFormats().add(jointureArticleFormat1);
-//
-        //jointureArticleFormat1.setFormat(format1);
-        //jointureArticleFormat1.setArticle(article1);
-        //jointureArticleFormat1.setCoefficientPrix(1.5f);
-
-
-//        cadre1.getFinitions().add(jointureFinitionCadre1);
-//        finition1.getCadres().add(jointureFinitionCadre1);
-//        finition1.getFormats().add(jointureFormatFinition1);
-//        format1.getFinitions().add(jointureFormatFinition1);
-//        format1.getArticles().add(jointureArticleFormat1);
-
-
         cadreService.save(cadre1);
 
         // Jointure Cadre - Finition
@@ -150,19 +108,6 @@ public class RemplissageBDDParcoursPhoto {
         formatService.save(format1);
 
         articleService.save(article1);
-
-//        jointureFinitionCadreService.save(jointureFinitionCadre1);
-//        jointureFormatFinitionService.save(jointureFormatFinition1);
-//        jointureArticleFormatService.save(jointureArticleFormat1);
-
-
-//        jointureFormatFinitions.add(jointureFormatFinition1);
-//        jointureFinitionCadres.add(jointureFinitionCadre1);
-//        jointureArticleFormats.add(jointureArticleFormat1);
-//
-//        finition1.setCadres(jointureFinitionCadres);
-//        format1.setFinitions(jointureFormatFinitions);
-//        article1.setFormats(jointureArticleFormats);
 
         //Generation de la clé
         JointureArticleFormatId articleFormatId = new JointureArticleFormatId();
