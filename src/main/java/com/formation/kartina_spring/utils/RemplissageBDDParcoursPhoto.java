@@ -134,10 +134,23 @@ public class RemplissageBDDParcoursPhoto {
 //        format1.getFinitions().add(jointureFormatFinition1);
 //        format1.getArticles().add(jointureArticleFormat1);
 
-        articleService.save(article1);
+
         cadreService.save(cadre1);
+
+        // Jointure Cadre - Finition
+        List<Cadre> cadres = new ArrayList<>();
+        cadres.add(cadre1);
+        finition1.setCadres(cadres);
         finitionService.save(finition1);
+
+        // Jointure Fintion-Format
+        List<Finition> finitions = new ArrayList<>();
+        finitions.add(finition1);
+        format1.setFinitions(finitions);
         formatService.save(format1);
+
+        articleService.save(article1);
+
 //        jointureFinitionCadreService.save(jointureFinitionCadre1);
 //        jointureFormatFinitionService.save(jointureFormatFinition1);
 //        jointureArticleFormatService.save(jointureArticleFormat1);
@@ -164,9 +177,6 @@ public class RemplissageBDDParcoursPhoto {
         articleFormat.setQuantiteDispo(33);
 
         articleFormatService.save(articleFormat);
-
-    // TODO : Id de jointures finition_cadres et format_finitions non sauvegardés
-
     }
 
 }
