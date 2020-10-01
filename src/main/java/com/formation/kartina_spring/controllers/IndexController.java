@@ -46,7 +46,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/remplissage")
+    @GetMapping("/remplissageArticle")
     public String remplissage() {
         remplissageBDDParcoursPhoto.saveDBArticle();
         return "redirect:/";
